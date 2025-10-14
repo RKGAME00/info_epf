@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "tp",
+            "request": "launch",
+            "mainClass": "tp",
+            "projectName": "java_8bb1a078"
+        },
+        {
             "name": "Débogueur Python : Fichier actuel",
             "type": "debugpy",
             "request": "launch",
