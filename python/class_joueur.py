@@ -4,7 +4,7 @@ class Joueur:
     def __init__(self, nom):
         self.nom = nom  # nom du joueur
         self.size = 5  # taille par défaut de la grille (5x5)
-        self.grille = [["." for _ in range(self.size)] for _ in range(self.size)]  # initialisation de la grille vide
+        self.grille = [["░" for _ in range(self.size)] for _ in range(self.size)]  # initialisation de la grille vide
         self.bateaux = []  # liste des bateaux (listes de coordonnées)
         self.score = 0  # score du joueur initialisé 
         
@@ -41,9 +41,9 @@ class Joueur:
         if cell == 'B':
             self.grille[r][c] = 'X'  # marquer touché par 'X'
             return 'hit'  # renvoyer 'hit' si bateau touché
-        if cell in ('X', 'O'):
+        if cell in ('X', '⬤'):
             return 'repeat'  # case déjà ciblée précédemment
-        self.grille[r][c] = 'O'  # marquer manqué par 'O'
+        self.grille[r][c] = '⬤'  # marquer manqué par 'O'
         return 'miss'  # renvoyer 'miss' si eau touchée
 
     def afficher_grille(self):
@@ -56,7 +56,7 @@ class Joueur:
             display = []  # représentation affichée pour la ligne (masque les bateaux)
             for cell in row:
                 if cell == 'B':
-                    display.append('.')  # masquer les bateaux en affichage public
+                    display.append('░')  # masquer les bateaux en affichage public
                 else:
                     display.append(cell)  # afficher le reste tel quel ('.','X','O')
             # ajouter la ligne avec lettre de ligne et colonnes formatées
