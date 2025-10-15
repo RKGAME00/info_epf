@@ -20,8 +20,16 @@ class magasin {
     // =======================
 
     public void addEquipementTerrain(EquipementsTerrain e) {
-        if (e != null)
-            listeEquipementsTerrain.add(e);
+        if (e == null) {
+            return;
+        }
+        for (EquipementsTerrain et : listeEquipementsTerrain) {
+            if (et.reference != null && et.reference.equals(e.reference)) {
+                System.out.println("Un équipement de terrain avec la référence " + e.reference + " existe déjà.");
+                return;
+            }
+        }
+        listeEquipementsTerrain.add(e);
     }
 
     public Vector<EquipementsTerrain> getListeEquipementsTerrain() {
@@ -42,8 +50,16 @@ class magasin {
     // =======================
 
     public void addEquipementJoueurs(EquipementsJoueurs e) {
-        if (e != null)
-            listeEquipementsJoueurs.add(e);
+        if (e == null) {
+            return;
+        }
+        for (EquipementsJoueurs ej : listeEquipementsJoueurs) {
+            if (ej.reference != null && ej.reference.equals(e.reference)) {
+                System.out.println("Un équipement de joueur avec la référence " + e.reference + " existe déjà.");
+                return;
+            }
+        }
+        listeEquipementsJoueurs.add(e);
     }
 
     public Vector<EquipementsJoueurs> getListeEquipementsJoueurs() {
@@ -64,8 +80,16 @@ class magasin {
     // ==================================
 
     public void addEquipementProtectionJoueurs(EquipementsProtectionJoueurs e) {
-        if (e != null)
-            listeEquipementsProtectionJoueurs.add(e);
+        if (e == null) {
+            return;
+        }
+        for (EquipementsProtectionJoueurs ep : listeEquipementsProtectionJoueurs) {
+            if (ep.reference != null && ep.reference.equals(e.reference)) {
+                System.out.println("Un équipement de protection avec la référence " + e.reference + " existe déjà.");
+                return;
+            }
+        }
+        listeEquipementsProtectionJoueurs.add(e);
     }
 
     public Vector<EquipementsProtectionJoueurs> getListeEquipementsProtectionJoueurs() {
@@ -484,6 +508,43 @@ class magasin {
         System.out.println("\nÉquipements de Protection pour Joueurs:");
         showEquipementsProtectionJoueurs();
 
+    }
+
+    public void supprimerEquipement(String reference) {
+        for (int i = 0; i < listeEquipementsTerrain.size(); i++) {
+            if (listeEquipementsTerrain.get(i).reference.equals(reference)) {
+                listeEquipementsTerrain.remove(i);
+                // Mettre à jour les références suivantes
+                for (int j = i; j < listeEquipementsTerrain.size(); j++) {
+                    listeEquipementsTerrain.get(j).reference = "REF" + (j + 1);
+                }
+                System.out.println("Équipement de terrain avec la référence " + reference + " supprimé.");
+                return;
+            }
+        }
+        for (int i = 0; i < listeEquipementsJoueurs.size(); i++) {
+            if (listeEquipementsJoueurs.get(i).reference.equals(reference)) {
+                listeEquipementsJoueurs.remove(i);
+                // Mettre à jour les références suivantes
+                for (int j = i; j < listeEquipementsJoueurs.size(); j++) {
+                    listeEquipementsJoueurs.get(j).reference = "REF" + (j + 1);
+                }
+                System.out.println("Équipement de joueur avec la référence " + reference + " supprimé.");
+                return;
+            }
+        }
+        for (int i = 0; i < listeEquipementsProtectionJoueurs.size(); i++) {
+            if (listeEquipementsProtectionJoueurs.get(i).reference.equals(reference)) {
+                listeEquipementsProtectionJoueurs.remove(i);
+                // Mettre à jour les références suivantes
+                for (int j = i; j < listeEquipementsProtectionJoueurs.size(); j++) {
+                    listeEquipementsProtectionJoueurs.get(j).reference = "REF" + (j + 1);
+                }
+                System.out.println("Équipement de protection avec la référence " + reference + " supprimé.");
+                return;
+            }
+        }
+        System.out.println("Équipement avec la référence " + reference + " non trouvé.");
     }
 
     /* Test */
