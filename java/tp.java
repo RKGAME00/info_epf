@@ -55,12 +55,21 @@ public class tp {
                                 exitAjout = 1;
 
                                 break;
+                            case 2:
+                                // equip joueurs $
+                                break;
+                            case 3:
+                                // equip protec joueurs $
+                                break;
 
                             default:
                                 System.out.println("\nChoix invalide. Veuillez réessayer.");
                                 break;
                         }
                     }
+                    break;
+                case 2:
+                    // suppr equip $$
                     break;
 
                 case 3:
@@ -93,6 +102,14 @@ public class tp {
                                 break;
                         }
                     }
+                    break;
+
+                case 4:
+                    // modif equip $$
+                    break;
+
+                case 5:
+                    // recherche $$
                     break;
             }
 
