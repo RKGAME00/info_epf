@@ -82,25 +82,25 @@ public class windowUi {
                 break;
 
             case 1:
-                System.out.println("\nreference : ");
+                System.out.print("\nreference : ");
                 break;
             case 2:
-                System.out.println("sport : ");
+                System.out.print("\nsport : ");
                 break;
             case 3:
-                System.out.println("designation : ");
+                System.out.print("\ndesignation : ");
                 break;
             case 4:
-                System.out.println("prix : ");
+                System.out.print("\nprix : ");
                 break;
             case 5:
-                System.out.println("nombre : ");
+                System.out.print("\nnombre : ");
                 break;
             case 6:
-                System.out.println("taille : ");
+                System.out.print("\ntaille : ");
                 break;
             case 7:
-                System.out.println("couleur : ");
+                System.out.print("\ncouleur : ");
                 break;
 
             default:
@@ -121,28 +121,28 @@ public class windowUi {
                 break;
 
             case 1:
-                System.out.println("\nreference : ");
+                System.out.print("\nreference : ");
                 break;
             case 2:
-                System.out.println("sport : ");
+                System.out.print("\nsport : ");
                 break;
             case 3:
-                System.out.println("designation : ");
+                System.out.print("\ndesignation : ");
                 break;
             case 4:
-                System.out.println("prix : ");
+                System.out.print("\nprix : ");
                 break;
             case 5:
-                System.out.println("nombre : ");
+                System.out.print("\nnombre : ");
                 break;
             case 6:
-                System.out.println("taille : ");
+                System.out.print("\ntaille : ");
                 break;
             case 7:
-                System.out.println("couleur : ");
+                System.out.print("\ncouleur : ");
                 break;
             case 8:
-                System.out.println("niveau : ");
+                System.out.print("\nniveau : ");
                 break;
 
             default:

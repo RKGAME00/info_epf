@@ -30,36 +30,26 @@ public class tp {
                             case 0:
                                 exitAjout = 1;
                                 break;
-
                             case 1:
-                                EquipementsTerrain et = new EquipementsTerrain();
-                                mw.ajouterEquipementTerrain(0);
-                                mw.ajouterEquipementTerrain(1);
-                                et.reference = scan.next();
-                                mw.ajouterEquipementTerrain(2);
-                                et.sport = scan.next();
-                                mw.ajouterEquipementTerrain(3);
-                                et.designation = scan.next();
-                                mw.ajouterEquipementTerrain(4);
-                                et.prix = scan.nextInt();
-                                mw.ajouterEquipementTerrain(5);
-                                et.nombre = scan.nextInt();
-                                mw.ajouterEquipementTerrain(6);
-                                et.hauteur = scan.nextInt();
-                                mw.ajouterEquipementTerrain(7);
-                                et.largeur = scan.nextInt();
-                                mw.ajouterEquipementTerrain(8);
-                                et.poids = scan.nextInt();
+                                EquipementsTerrain et = saisirEquipementTerrain(scan, mw);
                                 mag.addEquipementTerrain(et);
                                 System.out.println("\nÉquipement de terrain ajouté avec succès !");
                                 exitAjout = 1;
 
                                 break;
                             case 2:
-                                // equip joueurs $
+                                EquipementsJoueurs ej = saisirEquipementJoueurs(scan, mw);
+                                mag.addEquipementJoueurs(ej);
+                                System.out.println("\nÉquipement de joueurs ajouté avec succès !");
+                                exitAjout = 1;
+
                                 break;
                             case 3:
-                                // equip protec joueurs $
+                                EquipementsProtectionJoueurs ep = saisirEquipementProtectionJoueurs(scan, mw);
+                                mag.addEquipementProtectionJoueurs(ep);
+                                System.out.println("\nÉquipement de protection de joueurs ajouté avec succès !");
+                                exitAjout = 1;
+
                                 break;
 
                             default:
@@ -70,6 +60,9 @@ public class tp {
                     break;
                 case 2:
                     // suppr equip $$
+
+                    mw.supprimerEquipement();
+
                     break;
 
                 case 3:
@@ -114,5 +107,77 @@ public class tp {
             }
 
         }
+    }
+
+    private static EquipementsTerrain saisirEquipementTerrain(Scanner scan, windowUi mw) {
+        EquipementsTerrain et = new EquipementsTerrain();
+        mw.ajouterEquipementTerrain(0);
+        mw.ajouterEquipementTerrain(1);
+        et.reference = scan.next();
+        mw.ajouterEquipementTerrain(2);
+        et.sport = scan.next();
+        mw.ajouterEquipementTerrain(3);
+        et.designation = scan.next();
+        mw.ajouterEquipementTerrain(4);
+        et.prix = readIntSafe(scan);
+        mw.ajouterEquipementTerrain(5);
+        et.nombre = readIntSafe(scan);
+        mw.ajouterEquipementTerrain(6);
+        et.hauteur = readIntSafe(scan);
+        mw.ajouterEquipementTerrain(7);
+        et.largeur = readIntSafe(scan);
+        mw.ajouterEquipementTerrain(8);
+        et.poids = readIntSafe(scan);
+        return et;
+    }
+
+    private static EquipementsJoueurs saisirEquipementJoueurs(Scanner scan, windowUi mw) {
+        EquipementsJoueurs ej = new EquipementsJoueurs();
+        mw.ajouterEquipementJoueurs(0);
+        mw.ajouterEquipementJoueurs(1);
+        ej.reference = scan.next();
+        mw.ajouterEquipementJoueurs(2);
+        ej.sport = scan.next();
+        mw.ajouterEquipementJoueurs(3);
+        ej.designation = scan.next();
+        mw.ajouterEquipementJoueurs(4);
+        ej.prix = readIntSafe(scan);
+        mw.ajouterEquipementJoueurs(5);
+        ej.nombre = readIntSafe(scan);
+        mw.ajouterEquipementJoueurs(6);
+        ej.taille = scan.next();
+        mw.ajouterEquipementJoueurs(7);
+        ej.couleur = scan.next();
+        return ej;
+    }
+
+    private static EquipementsProtectionJoueurs saisirEquipementProtectionJoueurs(Scanner scan, windowUi mw) {
+        EquipementsProtectionJoueurs ep = new EquipementsProtectionJoueurs();
+        mw.ajouterEquipementProtectionJoueurs(0);
+        mw.ajouterEquipementProtectionJoueurs(1);
+        ep.reference = scan.next();
+        mw.ajouterEquipementProtectionJoueurs(2);
+        ep.sport = scan.next();
+        mw.ajouterEquipementProtectionJoueurs(3);
+        ep.designation = scan.next();
+        mw.ajouterEquipementProtectionJoueurs(4);
+        ep.prix = readIntSafe(scan);
+        mw.ajouterEquipementProtectionJoueurs(5);
+        ep.nombre = readIntSafe(scan);
+        mw.ajouterEquipementProtectionJoueurs(6);
+        ep.taille = scan.next();
+        mw.ajouterEquipementProtectionJoueurs(7);
+        ep.couleur = scan.next();
+        mw.ajouterEquipementProtectionJoueurs(8);
+        ep.niveau = scan.next();
+        return ep;
+    }
+
+    private static int readIntSafe(Scanner scan) {
+        while (!scan.hasNextInt()) {
+            System.out.print("Veuillez entrer un entier valide : ");
+            scan.next();
+        }
+        return scan.nextInt();
     }
 }
