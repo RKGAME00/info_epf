@@ -38,4 +38,15 @@
         </plugins>
     </build>
 
+    <!-- Ensure dependencies node exists to help some tools that parse the POM -->
+    <dependencies>
+        <!-- no dependencies for this small project -->
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- no managed dependencies -->
+        </dependencies>
+    </dependencyManagement>
+
 </project>
