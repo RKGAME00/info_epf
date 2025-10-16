@@ -7,16 +7,26 @@ public class windowUi {
         System.out.println("TP Info EPF saint nazaire");
     }
 
-    public void Mainwindow() {
+    public void mainwindow() {
         System.out.println("\n======================================");
-        System.out.println("*            Menu Principal          *");
+        System.out.println("*        Menu principal              *");
+        System.out.println("======================================\n");
+        System.out.println("1. gestion de stock");
+        System.out.println("2. gestion des commandes");
+        System.out.println("0. Quitter");
+        System.out.print("\nChoix : ");
+    }
+
+    public void gestionStock() {
+        System.out.println("\n======================================");
+        System.out.println("*            Gestion de stock        *");
         System.out.println("======================================\n");
         System.out.println("1. Ajouter un équipement");
         System.out.println("2. Supprimer un équipement");
         System.out.println("3. Afficher les équipements");
         System.out.println("4. Modifier un équipement");
         System.out.println("5. Rechercher un équipement");
-        System.out.println("0. Quitter");
+        System.out.println("0. retour");
         System.out.print("\nChoix : ");
     }
 
@@ -27,7 +37,7 @@ public class windowUi {
         System.out.println("1. Equipement de terrain");
         System.out.println("2. Equipement de joueurs");
         System.out.println("3. Equipement de protection des joueurs");
-        System.out.println("0. Retour au menu principal");
+        System.out.println("0. retour");
         System.out.print("\nChoix : ");
     }
 
@@ -158,11 +168,11 @@ public class windowUi {
         System.out.println("\n======================================");
         System.out.println("*        Afficher les équipements     *");
         System.out.println("======================================\n");
-
         System.out.println("1. Equipement de terrain");
         System.out.println("2. Equipement de joueurs");
         System.out.println("3. Equipement de protection des joueurs");
-        System.out.println("0. Retour au menu principal");
+        System.out.println("4. Tout afficher");
+        System.out.println("0. retour");
         System.out.print("\nChoix : ");
     }
 

@@ -9,6 +9,13 @@
             "name": "tp",
             "request": "launch",
             "mainClass": "tp",
+            "projectName": "info_epf_4df0f160"
+        },
+        {
+            "type": "java",
+            "name": "tp",
+            "request": "launch",
+            "mainClass": "tp",
             "projectName": "java_8bb1a078"
         },
         {

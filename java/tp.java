@@ -9,8 +9,7 @@ public class tp {
         windowUi mw = new windowUi();
 
         while (true) {
-
-            mw.Mainwindow();
+            mw.mainwindow();
             int choix = scan.nextInt();
 
             switch (choix) {
@@ -18,94 +17,109 @@ public class tp {
                     mw.quiter();
                     System.exit(0);
                     break;
-
-                case 1:
-                    int exitAjout = 0;
-                    while (exitAjout == 0) {
-
-                        mw.ajouterEquipement();
-                        int choixAjout = scan.nextInt();
-
-                        switch (choixAjout) {
+                case 1: {
+                    boolean exitGestionStock = false;
+                    while (!exitGestionStock) {
+                        mw.gestionStock();
+                        int choixEquip = scan.nextInt();
+                        switch (choixEquip) {
                             case 0:
-                                exitAjout = 1;
+                                // retour au menu principal
+                                exitGestionStock = true;
                                 break;
-                            case 1:
-                                EquipementsTerrain et = saisirEquipementTerrain(scan, mw);
-                                mag.addEquipementTerrain(et);
-                                System.out.println("\nÉquipement de terrain ajouté avec succès !");
-                                exitAjout = 1;
-
+                            case 1: { // ajouter équipement
+                                boolean exitAjout = false;
+                                while (!exitAjout) {
+                                    mw.ajouterEquipement();
+                                    int choixAjout = scan.nextInt();
+                                    switch (choixAjout) {
+                                        case 0:
+                                            // retour au menu gestionStock
+                                            exitAjout = true;
+                                            break;
+                                        case 1:
+                                            EquipementsTerrain et = saisirEquipementTerrain(scan, mw);
+                                            mag.addEquipementTerrain(et);
+                                            System.out.println("\nÉquipement de terrain ajouté avec succès !");
+                                            // rester dans gestionStock (exitAjout true returns to gestionStock)
+                                            exitAjout = true;
+                                            break;
+                                        case 2:
+                                            EquipementsJoueurs ej = saisirEquipementJoueurs(scan, mw);
+                                            mag.addEquipementJoueurs(ej);
+                                            System.out.println("\nÉquipement de joueurs ajouté avec succès !");
+                                            exitAjout = true;
+                                            break;
+                                        case 3:
+                                            EquipementsProtectionJoueurs ep = saisirEquipementProtectionJoueurs(scan,
+                                                    mw);
+                                            mag.addEquipementProtectionJoueurs(ep);
+                                            System.out.println(
+                                                    "\nÉquipement de protection de joueurs ajouté avec succès !");
+                                            exitAjout = true;
+                                            break;
+                                        default:
+                                            System.out.println("\nChoix invalide. Veuillez réessayer.");
+                                            break;
+                                    }
+                                }
+                            }
                                 break;
                             case 2:
-                                EquipementsJoueurs ej = saisirEquipementJoueurs(scan, mw);
-                                mag.addEquipementJoueurs(ej);
-                                System.out.println("\nÉquipement de joueurs ajouté avec succès !");
-                                exitAjout = 1;
-
+                                // supprimer équipement
+                                mw.supprimerEquipement();
                                 break;
-                            case 3:
-                                EquipementsProtectionJoueurs ep = saisirEquipementProtectionJoueurs(scan, mw);
-                                mag.addEquipementProtectionJoueurs(ep);
-                                System.out.println("\nÉquipement de protection de joueurs ajouté avec succès !");
-                                exitAjout = 1;
-
+                            case 3: { // afficher
+                                boolean exitAff = false;
+                                while (!exitAff) {
+                                    mw.afficherEquipement();
+                                    int choixAff = scan.nextInt();
+                                    switch (choixAff) {
+                                        case 0:
+                                            exitAff = true; // retour gestionStock
+                                            break;
+                                        case 1:
+                                            mw.afficherEquipementTerrain();
+                                            mag.showEquipementsTerrain();
+                                            break;
+                                        case 2:
+                                            mw.afficherEquipementJoueurs();
+                                            mag.showEquipementsJoueurs();
+                                            break;
+                                        case 3:
+                                            mw.afficherEquipementProtectionJoueurs();
+                                            mag.showEquipementsProtectionJoueurs();
+                                            break;
+                                        case 4:
+                                            mag.showAll();
+                                            break;
+                                        default:
+                                            System.out.println("\nChoix invalide. Veuillez réessayer.");
+                                            break;
+                                    }
+                                }
+                            }
                                 break;
-
+                            case 4:
+                                // modification (à implémenter)
+                                break;
+                            case 5:
+                                // recherche (à implémenter)
+                                break;
                             default:
                                 System.out.println("\nChoix invalide. Veuillez réessayer.");
                                 break;
                         }
                     }
+                }
                     break;
                 case 2:
-                    // suppr equip $$
-
-                    mw.supprimerEquipement();
-
+                    // gestion commandes (non implémenté)
                     break;
-
-                case 3:
-                    int exitAff = 0;
-                    while (exitAff == 0) {
-                        mw.afficherEquipement();
-                        int choixAff = scan.nextInt();
-
-                        switch (choixAff) {
-                            case 1:
-                                mw.afficherEquipementTerrain();
-                                mag.showEquipementsTerrain();
-                                exitAff = 1;
-                                break;
-
-                            case 2:
-                                mw.afficherEquipementJoueurs();
-                                mag.showEquipementsJoueurs();
-                                exitAff = 1;
-                                break;
-
-                            case 3:
-                                mw.afficherEquipementProtectionJoueurs();
-                                mag.showEquipementsProtectionJoueurs();
-                                exitAff = 1;
-                                break;
-
-                            default:
-                                System.out.println("\nChoix invalide. Veuillez réessayer.");
-                                break;
-                        }
-                    }
-                    break;
-
-                case 4:
-                    // modif equip $$
-                    break;
-
-                case 5:
-                    // recherche $$
+                default:
+                    System.out.println("\nChoix invalide. Veuillez réessayer.");
                     break;
             }
-
         }
     }
 
