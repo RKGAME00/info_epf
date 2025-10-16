@@ -1,1 +1,11 @@
 reference,sport,designation,prix,nombre,hauteur,largeur,poids
+REF1,Football,Ballon,72,15,125,500,37051
+REF2,Basketball,Ballon,64,16,461,463,11745
+REF3,Cyclisme,Cage,84,1,190,136,1830
+REF4,Tennis,Plot,83,6,180,65,48316
+REF5,Natation,Panneau,68,6,138,410,33103
+REF6,Rugby,Ballon,50,17,254,256,41518
+REF7,Handball,Balle,198,17,292,509,6599
+REF8,Volleyball,Balle,178,3,477,981,36396
+REF9,Athlétisme,Cible,144,20,238,710,37629
+REF10,Golf,Balle,130,3,174,254,4150
