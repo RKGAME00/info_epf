@@ -3,6 +3,43 @@ import java.util.Scanner;
 public class tp {
 
     public static void main(String[] args) {
+        // If user passed --nogui, run the original console UI. Otherwise launch JavaFX
+        // GUI.
+        for (String a : args) {
+            if (a != null && a.equalsIgnoreCase("--nogui")) {
+                runConsoleUI();
+                return;
+            }
+        }
+
+        // Try to launch JavaFX GUI. If JavaFX not available, try Swing before falling
+        // back to console UI.
+        // Try to launch JavaFX GUI by reflection (so compilation doesn't require
+        // JavaFX).
+        try {
+            try {
+                Class<?> gclass = Class.forName("Gui");
+                java.lang.reflect.Method m = gclass.getMethod("main", String[].class);
+                m.invoke(null, (Object) args);
+                return;
+            } catch (ClassNotFoundException cnf) {
+                throw cnf;
+            }
+        } catch (Throwable t) {
+            System.out
+                    .println("Gui non disponible ou erreur au lancement. Tentative de fallback vers Swing...");
+            try {
+                Gui.main(args);
+                return;
+            } catch (Throwable t2) {
+                System.out.println("Swing non disponible ou erreur. Basculage vers UI console.");
+                runConsoleUI();
+                return;
+            }
+        }
+    }
+
+    private static void runConsoleUI() {
         Scanner scan = new Scanner(System.in);
         magasin mag = new magasin();
         windowUi mw = new windowUi();

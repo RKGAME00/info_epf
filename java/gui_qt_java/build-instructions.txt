@@ -1,9 +1,0 @@
-Notes: Qt-Java build/integration
-
-This folder does not contain runnable Qt-Java code because linking Qt to Java requires native binaries and platform-specific setup.
-
-If you want to pursue Qt-Java, two realistic paths:
-- Find a maintained Qt Jambi distribution for your platform and follow its packaging instructions.
-- Or build a small HTTP REST API in Java (embedded Jetty or similar) and implement the Qt/QML frontend separately; the frontend talks to the Java backend.
-
-I can help further once you pick a path.
