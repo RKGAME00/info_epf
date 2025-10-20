@@ -150,6 +150,13 @@ public class Gui {
                         break;
                     case "Quitter":
                         switchPanel("quit", "Au revoir !");
+                        // delay 1 second
+                        // try {
+                        // Thread.sleep(1000);
+                        // } catch (InterruptedException ie) {
+                        // // ignore
+                        // }
+                        System.exit(0);
                         break;
                     default:
                         // action personnalisée non reconnue (ne rien faire)
@@ -1186,6 +1193,10 @@ public class Gui {
         JLabel bye = new JLabel("Au revoir !", SwingConstants.CENTER);
         bye.setFont(new Font("SansSerif", Font.BOLD, 18));
         panel.add(bye, BorderLayout.CENTER);
+        // ferme toute l'application
+
+        // System.exit(0);
+
         return panel;
     }
 
