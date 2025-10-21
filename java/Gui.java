@@ -55,6 +55,7 @@ public class Gui {
     // références choisies
     private List<String> currentSelectedRefs = null;
     private String currentSortKey = "Référence";
+    private boolean sortAscending = true; // true = asc, false = desc
 
     public Gui() {
         // initialiser magasin (qui charge via FileManager)
@@ -384,8 +385,29 @@ public class Gui {
 
         filterPanel.add(new JLabel("Tri :"));
         sortCombo = new JComboBox<>(new String[] { "Référence", "Désignation", "Prix", "Quantité" });
+        sortCombo.addActionListener(e -> {
+            Object sel = sortCombo.getSelectedItem();
+            if (sel != null) {
+                currentSortKey = sel.toString();
+                refreshTable();
+            }
+        });
         filterPanel.add(sortCombo);
+        // bouton ordre du tri (croissant/décroissant)
 
+        JButton sortOrderBtn = new JButton("Ordre (asc)");
+        sortOrderBtn.addActionListener(e -> {
+            // Bascule entre croissant/décroissant et applique le tri immédiatement
+            sortAscending = !sortAscending;
+            sortOrderBtn.setText(sortAscending ? "Ordre (asc)" : "Ordre (desc)");
+            // update currentSortKey from combo (keep selected key)
+            Object sel = sortCombo.getSelectedItem();
+            if (sel != null)
+                currentSortKey = sel.toString();
+            refreshTable();
+        });
+
+        filterPanel.add(sortOrderBtn);
         // --- LÉGENDE : couleurs par type ---
         JPanel legendPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 4));
         // couleurs choisies
@@ -400,28 +422,41 @@ public class Gui {
 
         // Champ de recherche par référence (saisissez la référence puis "Afficher")
         refSearchField = new JTextField(15);
-        JButton applyFilterBtn = new JButton("Afficher");
-        applyFilterBtn.addActionListener(e -> {
-            String v = refSearchField.getText().trim();
-            if (v.isEmpty()) {
-                currentSelectedRefs = null;
-            } else {
-                String[] parts = v.split("[,\\s]+");
-                List<String> refs = new ArrayList<>();
-                for (String p : parts) {
-                    String t = p.trim();
-                    if (!t.isEmpty())
-                        refs.add(t);
-                }
-                currentSelectedRefs = refs.isEmpty() ? null : refs;
+        refSearchField.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+            public void insertUpdate(javax.swing.event.DocumentEvent e) {
+                applyFilter();
             }
-            currentSortKey = (String) sortCombo.getSelectedItem();
-            refreshTable();
+
+            public void removeUpdate(javax.swing.event.DocumentEvent e) {
+                applyFilter();
+            }
+
+            public void changedUpdate(javax.swing.event.DocumentEvent e) {
+                applyFilter();
+            }
+
+            private void applyFilter() {
+                String v = refSearchField.getText().trim();
+                if (v.isEmpty()) {
+                    currentSelectedRefs = null;
+                } else {
+                    String[] parts = v.split("[,\\s]+");
+                    List<String> refs = new ArrayList<>();
+                    for (String p : parts) {
+                        String t = p.trim();
+                        if (!t.isEmpty())
+                            refs.add(t);
+                    }
+                    currentSelectedRefs = refs.isEmpty() ? null : refs;
+                }
+                currentSortKey = (String) sortCombo.getSelectedItem();
+                refreshTable();
+            }
         });
         JPanel refsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 6, 2));
         refsPanel.add(new JLabel("Réf à afficher (laisser vide = tout) :"));
         refsPanel.add(refSearchField);
-        refsPanel.add(applyFilterBtn);
+        refsPanel.add(refSearchField);
 
         // Empiler légende au-dessus du panneau de filtres
         JPanel northStack = new JPanel(new BorderLayout());
@@ -638,9 +673,13 @@ public class Gui {
                 comp = Comparator.comparingInt(r -> r.qty);
                 break;
             default:
-                comp = Comparator.comparing(r -> r.ref == null ? "" : r.ref, String.CASE_INSENSITIVE_ORDER);
+                comp = (r1, r2) -> naturalCompare(r1.ref, r2.ref);
         }
         rows.sort(comp);
+        // Appliquer l'ordre (asc/desc) selon le booléen sortAscending
+        if (!sortAscending) {
+            Collections.reverse(rows);
+        }
 
         // construire UI pour chaque row
         for (Row row : rows) {
@@ -741,6 +780,49 @@ public class Gui {
             if (e != null && ref.equals(e.reference))
                 return true;
         return false;
+    }
+
+    // Comparateur naturel pour références : traite les nombres intégrés
+    // numériquement
+    private static int naturalCompare(String a, String b) {
+        if (a == null)
+            a = "";
+        if (b == null)
+            b = "";
+        int ia = 0, ib = 0;
+        int la = a.length(), lb = b.length();
+        while (ia < la && ib < lb) {
+            char ca = a.charAt(ia);
+            char cb = b.charAt(ib);
+            if (Character.isDigit(ca) && Character.isDigit(cb)) {
+                // read full number chunk
+                int ja = ia;
+                while (ja < la && Character.isDigit(a.charAt(ja)))
+                    ja++;
+                int jb = ib;
+                while (jb < lb && Character.isDigit(b.charAt(jb)))
+                    jb++;
+                String na = a.substring(ia, ja);
+                String nb = b.substring(ib, jb);
+                // compare as integers (avoid overflow by length then lexicographic)
+                if (na.length() != nb.length())
+                    return Integer.compare(na.length(), nb.length());
+                int cmp = na.compareTo(nb);
+                if (cmp != 0)
+                    return cmp;
+                ia = ja;
+                ib = jb;
+                continue;
+            }
+            // case-insensitive compare for non-digit characters
+            char laa = Character.toLowerCase(ca);
+            char lbb = Character.toLowerCase(cb);
+            if (laa != lbb)
+                return laa - lbb;
+            ia++;
+            ib++;
+        }
+        return Integer.compare(la, lb);
     }
 
     private JPanel buildAjouterPanel() {
