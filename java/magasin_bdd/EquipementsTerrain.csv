@@ -1,7 +1,6 @@
 reference,sport,designation,prix,nombre,hauteur,largeur,poids
-REF1,Football,Cible,96,17,317,560,15093
 REF2,Basketball,Pneu d'entraînement,192,2,155,276,38941
-REF3,Cyclisme,Ballon,70,18,82,783,48736
+REF3,Cyclisme,Ballon,70,19,82,783,48736
 REF4,Tennis,Cible,160,20,228,368,18853
 REF5,Natation,Panneau,110,14,361,874,2827
 REF6,Rugby,Cible,137,7,236,556,2932
@@ -9,3 +8,4 @@ REF7,Handball,Cible,184,6,201,779,10716
 REF8,Volleyball,Filet,58,7,130,129,12697
 REF9,Athlétisme,Pneu d'entraînement,159,8,278,101,27669
 REF10,Golf,Pneu d'entraînement,172,17,186,511,44262
+REF1,FOOT (TEST),TEST,10,1,10,11,12

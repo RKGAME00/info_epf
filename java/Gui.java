@@ -10,9 +10,9 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.Component;
 import java.awt.Point;
-import java.awt.Dimension; // ajouté
+import java.awt.Dimension;
 import java.awt.Container; // ajouté : nécessaire pour la reconstruction dynamique de la sidebar
-import java.awt.FlowLayout; // ajouté pour le panneau de filtres
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -683,8 +683,8 @@ public class Gui {
 
         // construire UI pour chaque row
         for (Row row : rows) {
-            JPanel rpanel = new JPanel(new BorderLayout(8, 0));
-            rpanel.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
+            JPanel rpanel = new JPanel(new BorderLayout(8, 8));
+            rpanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
             // couleur selon type
             Color bg;
             switch (row.type) {
@@ -1131,7 +1131,7 @@ public class Gui {
                 Point p = SwingUtilities.convertPoint(listViewPanel, bounds.x, bounds.y, vp);
                 Rectangle r = new Rectangle(p.x, p.y, bounds.width, bounds.height);
                 vp.scrollRectToVisible(r);
-                ((JComponent) c).setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+                ((JComponent) c).setBorder(BorderFactory.createLineBorder(Color.ORANGE, 5));
                 return;
             }
         }
