@@ -1,66 +1,142 @@
-# class joueur bataille navale
+"""
+@file class_joueur.py
+@brief Définition de la classe `Joueur` utilisée pour la Bataille Navale.
+
+La classe stocke l'état interne (grille, bateaux, score) et fournit des
+opérations de base : placement de bateaux, réception d'un tir, affichage
+et sérialisation/désérialisation vers/depuis des dictionnaires JSON-compatibles.
+"""
+
+from typing import List, Tuple
+
 
 class Joueur:
-    def __init__(self, nom):
-        self.nom = nom  # nom du joueur
-        self.size = 5  # taille par défaut de la grille (5x5)
-        self.grille = [["░" for _ in range(self.size)] for _ in range(self.size)]  # initialisation de la grille vide
-        self.bateaux = []  # liste des bateaux (listes de coordonnées)
-        self.score = 0  # score du joueur initialisé 
-        
-    def placer_bateau(self, bateau, position, orientation):
-        taille = bateau  # taille du bateau à placer
-        r, c = position  # position de départ (r, c)
-        coords = []  # liste des coordonnées occupées par le bateau
-        if orientation == 'H':
-            for i in range(taille):  # pour chaque cellule du bateau en horizontal
-                coords.append((r, c + i))  # ajouter la coordonnée correspondante
+    """
+    @brief Représente un joueur dans la Bataille Navale.
+
+    Attributs principaux :
+    - nom : nom du joueur
+    - size : taille de la grille (size x size)
+    - grille : représentation 2D des cases (caractères)
+    - bateaux : liste des bateaux (liste de coordonnées)
+    - score : compteur de touches
+    """
+
+    def __init__(self, nom: str, size: int = 5):
+        """
+        Constructeur.
+
+        @param nom: nom du joueur
+        @param size: dimension de la grille (par défaut 5)
+        """
+        self.nom = nom
+        self.size = size
+        self.grille: List[List[str]] = [["░" for _ in range(self.size)] for _ in range(self.size)]
+        self.bateaux: List[List[Tuple[int, int]]] = []
+        self.score: int = 0
+
+    def reset(self):
+        """
+        @brief Réinitialise la grille, les bateaux et le score.
+        """
+        self.grille = [["░" for _ in range(self.size)] for _ in range(self.size)]
+        self.bateaux = []
+        self.score = 0
+
+    def placer_bateau(self, taille: int, position: Tuple[int, int], orientation: str) -> bool:
+        """
+        @brief Tente de placer un bateau de longueur `taille` à la position donnée.
+
+        @param taille: longueur du bateau
+        @param position: tuple (r, c) position de départ (0-based)
+        @param orientation: 'H' pour horizontal, autre pour vertical
+        @return: True si le placement a réussi, False sinon
+        """
+        r, c = position
+        coords = []
+        if orientation.upper() == 'H':
+            for i in range(taille):
+                coords.append((r, c + i))
         else:
-            for i in range(taille):  # pour chaque cellule du bateau en vertical
-                coords.append((r + i, c))  # ajouter la coordonnée correspondante
-        for rr, cc in coords:
-            if rr < 0 or rr >= self.size or cc < 0 or cc >= self.size:  # vérification des limites
-                return False  # placement invalide (hors grille)
-            if self.grille[rr][cc] == 'B':  # vérification qu'il n'y a pas déjà un bateau
-                return False  # placement invalide (collision)
-        for rr, cc in coords:
-            self.grille[rr][cc] = 'B'  # marquer les cases du bateau par 'B'
-        self.bateaux.append(coords)  # ajouter le bateau à la liste des bateaux
-        return True  # placement réussi
+            for i in range(taille):
+                coords.append((r + i, c))
 
-    def tirer(self, cible):
-        if isinstance(cible, tuple) and len(cible) == 2:  # s'assurer que la cible est un tuple (r, c)
-            return cible  # renvoyer la cible telle quelle
-        raise ValueError('cible must be a tuple (r,c)')  # sinon lever une erreur explicite
+        for rr, cc in coords:
+            if rr < 0 or rr >= self.size or cc < 0 or cc >= self.size:
+                return False
+            if self.grille[rr][cc] == 'B':
+                return False
 
-    def recevoir_tir(self, cible):
-        r, c = cible  # déballer la cible
-        if r < 0 or r >= self.size or c < 0 or c >= self.size:  # vérification des limites
-            return 'invalid'  # cible hors grille
-        cell = self.grille[r][c]  # lire le contenu de la cellule visée
+        for rr, cc in coords:
+            self.grille[rr][cc] = 'B'
+        self.bateaux.append(coords)
+        return True
+
+    def recevoir_tir(self, cible: Tuple[int, int]) -> str:
+        """
+        @brief Traite un tir reçu sur la grille.
+
+        @param cible: tuple (r, c)
+        @return: 'hit', 'miss', 'repeat' ou 'invalid'
+        """
+        r, c = cible
+        if r < 0 or r >= self.size or c < 0 or c >= self.size:
+            return 'invalid'
+        cell = self.grille[r][c]
         if cell == 'B':
-            self.grille[r][c] = 'X'  # marquer touché par 'X'
-            return 'hit'  # renvoyer 'hit' si bateau touché
+            self.grille[r][c] = 'X'
+            return 'hit'
         if cell in ('X', '⬤'):
-            return 'repeat'  # case déjà ciblée précédemment
-        self.grille[r][c] = '⬤'  # marquer manqué par 'O'
-        return 'miss'  # renvoyer 'miss' si eau touchée
+            return 'repeat'
+        self.grille[r][c] = '⬤'
+        return 'miss'
 
-    def afficher_grille(self):
-        # en-tête des colonnes numérotées (chaîne)
+    def afficher_grille(self, reveal: bool = False) -> str:
+        """
+        @brief Renvoie une représentation textuelle de la grille.
+
+        @param reveal: si True, montre les bateaux ('B'), sinon les masque
+        @return: chaîne multi-lignes affichable
+        """
         header = '    ' + '   '.join(str(i + 1) for i in range(self.size))
-        # liste des lignes à afficher (commence par l'en-tête)
         lines = [header]
-        lines.append('  ' + ' ---' * self.size + ' ')  # séparateur visuel entre l'en-tête et les lignes
+        lines.append('  ' + ' ---' * self.size + ' ')
         for i, row in enumerate(self.grille):
-            display = []  # représentation affichée pour la ligne (masque les bateaux)
+            display = []
             for cell in row:
-                if cell == 'B':
-                    display.append('░')  # masquer les bateaux en affichage public
+                if cell == 'B' and not reveal:
+                    display.append('░')
                 else:
-                    display.append(cell)  # afficher le reste tel quel ('.','X','O')
-            # ajouter la ligne avec lettre de ligne et colonnes formatées
+                    display.append(cell)
             lines.append(chr(ord('A') + i) + ' | ' + ' | '.join(display) + ' | ')
-            # séparateur visuel entre les lignes (aligné sur les colonnes)
             lines.append('  ' + ' ---' * self.size + ' ')
-        return '\n'.join(lines)  # renvoyer la représentation multi-lignes sous forme de string
+        return '\n'.join(lines)
+
+    def to_dict(self) -> dict:
+        """
+        @brief Sérialise l'état du joueur en dictionnaire JSON-serialisable.
+
+        @return: dict contenant nom, size, grille, bateaux et score
+        """
+        return {
+            'nom': self.nom,
+            'size': self.size,
+            'grille': self.grille,
+            'bateaux': self.bateaux,
+            'score': self.score,
+        }
+
+    @staticmethod
+    def from_dict(data: dict) -> 'Joueur':
+        """
+        @brief Reconstruit une instance `Joueur` à partir d'un dictionnaire.
+
+        @param data: dict produit par `to_dict`
+        @return: instance de `Joueur`
+        """
+        j = Joueur(data.get('nom', 'Unknown'), data.get('size', 5))
+        j.grille = data.get('grille', j.grille)
+        j.bateaux = data.get('bateaux', [])
+        j.score = int(data.get('score', 0))
+        return j
+
