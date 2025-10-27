@@ -3,19 +3,23 @@ import java.util.Scanner;
 public class tp {
 
     public static void main(String[] args) {
-        // If user passed --nogui, run the original console UI. Otherwise launch JavaFX
-        // GUI.
+
+        // Accept multiple forms: --nogui, -nogui, /nogui, no-gui, no_gui, nogui, etc.
         for (String a : args) {
-            if (a != null && a.equalsIgnoreCase("--nogui")) {
+            if (a == null)
+                continue;
+            String norm = a.trim().toLowerCase();
+            // remove leading dashes or slashes
+            norm = norm.replaceFirst("^[\\-/]+", "");
+            // remove non-alphanumeric separators (dash, underscore, dot, etc.)
+            norm = norm.replaceAll("[^a-z0-9]+", "");
+            if ("nogui".equals(norm) || "nographics".equals(norm)) { // "nographics" optional alias
                 runConsoleUI();
                 return;
             }
         }
 
-        // Try to launch JavaFX GUI. If JavaFX not available, try Swing before falling
-        // back to console UI.
-        // Try to launch JavaFX GUI by reflection (so compilation doesn't require
-        // JavaFX).
+
         try {
             try {
                 Class<?> gclass = Class.forName("Gui");
