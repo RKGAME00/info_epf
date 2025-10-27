@@ -4,16 +4,14 @@ public class tp {
 
     public static void main(String[] args) {
 
-        // Accept multiple forms: --nogui, -nogui, /nogui, no-gui, no_gui, nogui, etc.
+
         for (String a : args) {
             if (a == null)
                 continue;
             String norm = a.trim().toLowerCase();
-            // remove leading dashes or slashes
             norm = norm.replaceFirst("^[\\-/]+", "");
-            // remove non-alphanumeric separators (dash, underscore, dot, etc.)
             norm = norm.replaceAll("[^a-z0-9]+", "");
-            if ("nogui".equals(norm) || "nographics".equals(norm)) { // "nographics" optional alias
+            if ("nogui".equals(norm) || "nographics".equals(norm)) { 
                 runConsoleUI();
                 return;
             }

@@ -3,6 +3,11 @@
 Ce dépôt contient une implémentation simple en Python d'un jeu de *Bataille Navale* en mode texte,
 avec un système de sauvegarde/reprise de partie et un suivi des meilleurs scores (highscores).
 
+## Objectifs fonctionnels
+
+- Permettre à deux joueurs de jouer en local, tour par tour.
+- Sauvegarder automatiquement l'état de la partie afin de pouvoir la reprendre après une coupure.
+- Conserver un classement des meilleurs scores (meilleur nombre de touches par joueur).
 
 ## Outils et méthodes utilisés
 
@@ -16,15 +21,8 @@ Pendant le développement de ce TP, j'ai utilisé les outils et méthodes suivan
 - Git : gestion de versions (commits, branches). Pratique recommandée pour suivre les évolutions.
 - Fichiers JSON : format choisi pour la sauvegarde (`save_game.json`) et les `highscores.json` — lisible
   et facilement éditable.
-- Intelligence artificielle (assistant / Copilot) : utilisée comme aide pour
-  - concevoir la structure des classes et fonctions,
-  - générer des extraits de code idiomatiques Python (par ex. sérialisation JSON, parsing de saisie),
-  - proposer des améliorations et vérifier des erreurs logiques (ex : placement, gestion d'erreurs d'E/S).
 
-Conseils sur l'utilisation de l'IA pour ce projet
-- Utilisez l'IA pour prototyper des fonctions puis relisez le code généré : l'IA aide à écrire des
-  motifs idiomatiques (itération, comprehension, sérialisation) mais la logique métier doit être
-  validée par vous (tests simples, cas limites).
+L'utilisation de l'IA pour ce projet
 - Pour la manipulation de tableaux (grilles) en Python :
   - Les listes imbriquées suffisent pour une grille 2D simple ; utilisez des comprehensions pour
     l'initialisation (`[["░" for _ in range(size)] for _ in range(size)]`).
@@ -38,17 +36,10 @@ Conseils sur l'utilisation de l'IA pour ce projet
   et les fonctions de gestion de sauvegarde.
 
 Remarque finale
-L'IA est un accélérateur : elle vous propose des motifs et résout des problèmes de routine rapidement.
+L'IA est un accélérateur : elle me propose des motifs et résout des problèmes de routine rapidement.
 Toujours relire, tester et comprendre le code produit. Pour ce projet, l'IA a été utilisée pour
-proposer des structures, corriger des bugs de logique et rédiger des commentaires/docstrings.
+m'aider à sortir de la logique c++, en utilisant des fonctions avec des entrées plus permisive.
 
-
-## Aperçu rapide
-
-- Code écrit en Python 3.x
-- Interface en ligne de commande (PowerShell / terminal)
-- Sauvegarde automatique de l'état de la partie (fichier JSON)
-- Fichier de highscores au format JSON
 
 ## Arborescence (fichiers principaux)
 
@@ -61,27 +52,18 @@ proposer des structures, corriger des bugs de logique et rédiger des commentair
 
 > Tous les fichiers `.py` sont dans le dossier racine `python/`.
 
-## Objectifs fonctionnels
-
-- Permettre à deux joueurs de jouer en local, tour par tour.
-- Sauvegarder automatiquement l'état de la partie afin de pouvoir la reprendre après une coupure.
-- Conserver un classement des meilleurs scores (meilleur nombre de touches par joueur).
-
 ## Comment exécuter
 
 Exemples depuis PowerShell dans le dossier `python` :
 
-Lancer le test non interactif :
-
-```powershell
-python .\test.py
-```
 
 Lancer le jeu interactif :
 
 ```powershell
 python .\tp.py
 ```
+
+ou via les fonctionalitées de vscode
 
 Comportement au lancement de `tp.py` :
 - Si `save_game.json` existe, on vous propose de reprendre la partie.
@@ -93,27 +75,7 @@ Fichiers de données (générés) :
 - `save_game.json` : état complet de la partie (tour, joueurs, grilles, bateaux, scores).
 - `highscores.json` : dictionnaire JSON `{ "NomJoueur": score, ... }`.
 
-### Commandes utiles PowerShell
-
-Afficher la sauvegarde :
-
-```powershell
-Get-Content .\save_game.json -Raw
-```
-
-Afficher les highscores :
-
-```powershell
-Get-Content .\highscores.json -Raw
-```
-
-Supprimer la sauvegarde :
-
-```powershell
-Remove-Item .\save_game.json
-```
-
-## Description technique & API interne
+## Description technique
 
 - `Joueur`
   - Attributs : `nom`, `size`, `grille`, `bateaux`, `score`.
@@ -131,7 +93,7 @@ Remove-Item .\save_game.json
   - `delete_save()` : supprime le fichier de sauvegarde.
   - `load_highscores()`, `save_highscores()`, `update_highscores(joueur)` : gestion simple du fichier de meilleurs scores.
 
-## Démarche et étapes réalisées (commentaire personnel)
+## Démarche et étapes réalisées
 
 1. Repérage des grands axes du TP :
    - Gestion des joueurs et de leurs grilles,
@@ -167,94 +129,7 @@ Remove-Item .\save_game.json
   - Validation du format JSON (schéma),
   - Nettoyage automatique de la sauvegarde à la fin d'une partie gagnée.
 
-## Améliorations possibles (futures)
 
-- Ajouter une interface graphique légère (Tkinter ou web).
-- Ajouter des tests unitaires automatisés et CI (GitHub Actions).
-- Ajouter versioning du format de sauvegarde et migration entre versions.
-- Ajouter un mode réseau (TCP) pour jouer à distance.
-- Empêcher le placement de bateaux adjacents (règles plus strictes) et ajouter détection d'erreur d'entrée plus complète.
-
-## Contact / crédits
-
-
-
-"""
-Projet : Bataille Navale (TP)
-
-Ce dépôt contient une implémentation simple en Python d'un jeu de Bataille Navale en mode texte,
-avec un système de sauvegarde/reprise de partie et un suivi des meilleurs scores (highscores).
-
-## Aperçu rapide
-
-- Code écrit en Python 3.x
-- Interface en ligne de commande (PowerShell / terminal)
-- Sauvegarde automatique de l'état de la partie (fichier JSON)
-- Fichier de highscores au format JSON
-
-## Arborescence (fichiers principaux)
-
-- `class_joueur.py` : définition de la classe `Joueur` (grille, placement de bateaux, réception d'un tir, sérialisation).
-- `algo_jeu.py` : définition de la classe `Jeu` qui gère la boucle de jeu tour-par-tour et appelle l'autosave.
-- `gestion_sauvegarde.py` : fonctions pour sauvegarder/recharger la partie (`save_game`, `load_game`, `delete_save`) et pour gérer les `highscores`.
-- `tp.py` : point d'entrée CLI. Propose de reprendre une sauvegarde ou de lancer une nouvelle partie.
-- `test.py` : petit test non-interactif qui crée deux joueurs, place quelques bateaux et vérifie la sauvegarde/rechargement.
-- `save_game.json` : (généré) fichier de sauvegarde de la partie.
-- `highscores.json` : (généré) dictionnaire des meilleurs scores {nom: score}.
-
-> Tous les fichiers `.py` sont dans le dossier racine `python/`.
-
-## Objectifs fonctionnels
-
-- Permettre à deux joueurs de jouer en local, tour par tour.
-- Sauvegarder automatiquement l'état de la partie afin de pouvoir la reprendre après une coupure.
-- Conserver un classement des meilleurs scores (meilleur nombre de touches par joueur).
-
-## Comment exécuter
-
-Exemples depuis PowerShell dans le dossier `python` :
-
-Lancer le test non interactif :
-
-```powershell
-python .\test.py
-```
-
-Lancer le jeu interactif :
-
-```powershell
-python .\tp.py
-```
-
-Comportement au lancement de `tp.py` :
-- Si `save_game.json` existe, on vous propose de reprendre la partie.
-- Sinon, vous placez les bateaux pour chaque joueur (automatique ou manuel) puis la partie démarre.
-- La sauvegarde est mise à jour automatiquement après chaque action importante (tir, changement de tour).
-- À la fin d'une partie gagnée, le fichier `highscores.json` est mis à jour si le score du gagnant est supérieur à son précédent.
-
-Fichiers de données (générés) :
-- `save_game.json` : état complet de la partie (tour, joueurs, grilles, bateaux, scores).
-- `highscores.json` : dictionnaire JSON `{ "NomJoueur": score, ... }`.
-
-### Commandes utiles PowerShell
-
-Afficher la sauvegarde :
-
-```powershell
-Get-Content .\save_game.json -Raw
-```
-
-Afficher les highscores :
-
-```powershell
-Get-Content .\highscores.json -Raw
-```
-
-Supprimer la sauvegarde :
-
-```powershell
-Remove-Item .\save_game.json
-```
 
 ## Logique complète du jeu
 
@@ -307,37 +182,6 @@ Cette section explique en détail la logique, les règles et la manière dont le
 - Un score élevé signifie que le joueur a touché plus de cases adverses au cours de la partie.
 - Le `highscore` stocke le score maximal atteint par un joueur (identifié par son nom) sur toutes les parties jouées sur la machine.
 
-## Algorithme détaillé (flux d'exécution)
-
-Voici un algorithme pas-à-pas décrivant le flux d'exécution du programme :
-
-1. Démarrer `tp.py`.
-2. Appeler `gestion_sauvegarde.load_game()`.
-   - Si `save_game.json` existe, charger `tour`, `joueur1`, `joueur2`.
-   - Proposer à l'utilisateur : reprendre la partie ?
-     - Si oui : initialiser `Jeu` avec les joueurs chargés, régler `jeu.tour = tour` et aller à l'étape 6 (boucle de jeu).
-     - Si non : proposer de supprimer la sauvegarde. Si l'utilisateur accepte, supprimer le fichier.
-3. Si aucune sauvegarde (ou utilisateur a choisi de commencer une nouvelle partie) : demander le nom des deux joueurs.
-4. Pour chaque joueur : pour chaque taille de bateau (p.ex. 3 puis 2) :
-   - Demander placement automatique ou manuel.
-   - Tenter de placer le bateau (vérifier collisions / limites). Répéter tant que placement invalide.
-5. Instancier `Jeu(j1, j2)` et appeler `save_game(jeu)` pour écrire l'état initial.
-6. Boucle principale (`Jeu.demarrer()`):
-   - Tant que True :
-     - Déterminer joueur courant `current = joueurs[tour % 2]` et adversaire.
-     - Afficher la grille publique de l'adversaire (bateaux masqués).
-     - Lire saisie cible `raw`, parser en `(r,c)`.
-     - Appeler `adv.recevoir_tir((r,c))` -> résultat `res`.
-     - Si `res == 'hit'` : `current.score += 1`.
-     - Si `res == 'miss'` : `tour += 1` (changement de joueur).
-     - Si `res == 'repeat'` : avertir l'utilisateur.
-     - Sauvegarder l'état via `save_game(jeu)`.
-     - Vérifier victoire `verifier_gagnant(adv)` : si True -> retourner `current` comme gagnant.
-7. À la sortie de la boucle (partie finie) :
-   - Appeler `update_highscores(winner)` pour mettre à jour `highscores.json`.
-   - Supprimer `save_game.json` si la partie était une reprise ou si l'utilisateur avait demandé la suppression.
-   - Afficher les grilles finales et le gagnant.
-
 ## Exemples de cas d'utilisation / scénarios
 
 - Scénario 1 : coupure pendant la partie
@@ -346,11 +190,13 @@ Voici un algorithme pas-à-pas décrivant le flux d'exécution du programme :
 - Scénario 2 : vous trouvez la sauvegarde mais vous ne voulez pas la reprendre
   - Vous répondez `n` à la reprise et `o` à la suppression : le fichier est supprimé immédiatement et vous commencez une nouvelle partie.
 
-## Extensions et améliorations possibles
+  ## Améliorations possibles (futures)
 
-- Ajouter un champ `version` dans le JSON de sauvegarde pour pouvoir migrer des sauvegardes si le format change.
-- Conserver une liste des meilleures parties (top N) plutôt qu'un seul score par joueur.
-- Ajouter un mode spectateur / affichage du nombre de tours joués.
+- Ajouter une interface graphique légère (Tkinter ou web).
+- Ajouter des tests unitaires automatisés et CI (GitHub Actions).
+- Ajouter versioning du format de sauvegarde et migration entre versions.
+- Ajouter un mode réseau (TCP) pour jouer à distance.
+- Empêcher le placement de bateaux adjacents (règles plus strictes) et ajouter détection d'erreur d'entrée plus complète.
 
 ## Contact / crédits
 
