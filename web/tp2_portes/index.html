@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portes Logiques - TP Info</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>Mes Portes Logiques (AND, OR, NOT, etc.)</h1>
+
+        <!-- NOT -->
+        <section class="porte-bloc">
+            <img src="not.png" alt="inverseur" class="img-top">
+            <h2>1. Porte NOT (Inverseur)</h2>
+
+            <div class="inputs">
+                <label>Entrée A :</label>
+                <button id="not-a" onclick="changerValeurNot()">0</button>
+            </div>
+
+            <p class="sortie">Sortie → <span id="sortie-not">1</span></p>
+
+            <p class="expl">Inverse simplement la valeur : 0 devient 1, 1 devient 0</p>
+
+            <table class="tv">
+                <tr>
+                    <th>A</th>
+                    <th>Sortie</th>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- AND -->
+        <section class="porte-bloc">
+            <img src="et.png" alt="AND" class="img-top">
+            <h2>2. Porte ET (AND)</h2>
+
+            <div class="inputs">
+                <div>
+                    <label>A :</label>
+                    <button id="et-a" onclick="changerValeur('et','a')">0</button>
+                </div>
+                <div style="margin-top:8px;">
+                    <label>B :</label>
+                    <button id="et-b" onclick="changerValeur('et','b')">0</button>
+                </div>
+            </div>
+
+            <p class="sortie">Sortie → <span id="sortie-et">0</span></p>
+
+            <p class="expl">La porte ET donne 1 seulement si les deux entrées sont à 1. Sinon 0.</p>
+
+            <ul class="tv-list">
+                <li>0 0 → 0</li>
+                <li>0 1 → 0</li>
+                <li>1 0 → 0</li>
+                <li>1 1 → 1</li>
+            </ul>
+        </section>
+
+        <!-- OR -->
+        <section class="porte-bloc" style="background:#fffff8;">
+            <img src="or.png" alt="OR" class="img-top">
+            <h2>3. Porte OU (OR)</h2>
+
+            <div class="inputs">
+                <label>Entrée A :</label>
+                <button id="ou-a" onclick="changerValeur('ou','a')">0</button>
+                <br><br>
+                <label>Entrée B :</label>
+                <button id="ou-b" onclick="changerValeur('ou','b')">0</button>
+            </div>
+
+            <p class="sortie">Sortie → <span id="sortie-ou">0</span></p>
+
+            <p class="expl">Donne 1 dès qu'au moins une entrée est à 1</p>
+
+            <table class="tv">
+                <tr>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>S</th>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- XOR -->
+        <article class="porte-bloc">
+            <img src="xor.png" alt="XOR" class="img-top">
+            <h2>4. Porte XOR (OU exclusif)</h2>
+
+            <div class="inputs">
+                <label>A :</label>
+                <button id="xor-a" onclick="changerValeur('xor','a')">0</button>
+                <br>
+                <label>B :</label>
+                <button id="xor-b" onclick="changerValeur('xor','b')">0</button>
+            </div>
+
+            <p class="sortie">Sortie → <span id="sortie-xor">0</span></p>
+
+            <p class="expl">1 seulement quand les deux entrées sont différentes</p>
+
+            <ul class="tv-list">
+                <li>0 0 → 0</li>
+                <li>0 1 → 1</li>
+                <li>1 0 → 1</li>
+                <li>1 1 → 0</li>
+            </ul>
+        </article>
+
+        <!-- NAND -->
+        <section class="porte-bloc">
+            <img src="nand.png" alt="NAND" class="img-top">
+            <h2>5. Porte NAND</h2>
+
+            <div class="inputs">
+                <label>A :</label>
+                <button id="nand-a" onclick="changerValeur('nand','a')">0</button>
+                <br>
+                <label>B :</label>
+                <button id="nand-b" onclick="changerValeur('nand','b')">0</button>
+            </div>
+
+            <p class="sortie">Sortie → <span id="sortie-nand">1</span></p>
+
+            <p class="expl">C'est l'inverse de la porte ET → 0 seulement si les deux sont à 1</p>
+
+            <table class="tv">
+                <tr>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>S</th>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- NOR -->
+        <section class="porte-bloc">
+            <img src="nor.png" alt="NOR" class="img-top">
+            <h2>6. Porte NOR</h2>
+
+            <div class="inputs">
+                <div>
+                    <label>A :</label>
+                    <button id="nor-a" onclick="changerValeur('nor','a')">0</button>
+                </div>
+                <div>
+                    <label>B :</label>
+                    <button id="nor-b" onclick="changerValeur('nor','b')">0</button>
+                </div>
+            </div>
+
+            <p class="sortie">Sortie → <span id="sortie-nor">1</span></p>
+
+            <p class="expl">Inverse de OU → 1 seulement si les deux entrées sont à 0</p>
+
+            <ul class="tv-list">
+                <li>0 0 → 1</li>
+                <li>0 1 → 0</li>
+                <li>1 0 → 0</li>
+                <li>1 1 → 0</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <!-- j'ai mis le js à la fin pour que ça charge plus vite d'après forum-->
+    <script src="script.js"></script>
+
+    <!-- TODO :  Assemblage et câblage de porte pour simulation de plusieurs portes au relief
+                quizz 
+                partie cour avec vidéo intégré -->
+</body>
+
+</html>

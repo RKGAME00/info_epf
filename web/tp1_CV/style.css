@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #000063;
+    line-height: 1.6;
+}
+
+#conteneur {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+#en_tete {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+#en_tete h1 {
+    font-size: 3em;
+    color: #4400ffec;
+    margin-bottom: 10px;
+}
+
+#en_tete h2 {
+    font-size: 1.5em;
+    color: #4400ffec;
+    font-weight: normal;
+}
+
+.contact {
+    display: flex;
+    gap: 120px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+#contact, #profil, #competences, #formations, #experiences, #centres_interets {
+    background-color: #ffffff;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+#photo img {
+    width: 350px;
+    height: auto;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+#recherche_alternance {
+    background: linear-gradient(135deg, #ff0000, #ff4444, #ff0000);
+    background-size: 200% 200%;
+    animation: gradient_animation 3s ease infinite;
+    padding: 40px;
+    margin-bottom: 30px;
+    border: 5px solid #ffff00;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 255, 0, 0.5);
+    text-align: center;
+}
+
+#recherche_alternance h3 {
+    color: #ffff00;
+    font-size: 2.5em;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    animation: pulse_animation 1s ease-in-out infinite;
+    border-bottom: 3px solid #ffff00;
+}
+
+#recherche_alternance div {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+#recherche_alternance div p {
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+#recherche_alternance div ul {
+    color: black;
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+#recherche_alternance div li {
+    color: black;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 10px 0;
+    animation: slide_in 0.5s ease-out;
+}
+
+#recherche_alternance p {
+    color: #ffffff;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 15px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.appel_action {
+    font-size: 1.5em;
+    color: #ffff00;
+    animation: pulse_animation 1.2s ease-in-out infinite;
+    margin-top: 20px;
+}
+
+@keyframes gradient_animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse_animation {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes slide_in {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.categorie_competence {
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #005aad13;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.categorie_competence:hover {
+    background-color: #0073ffec;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 115, 255, 0.3);
+}
+
+.categorie_competence:hover h4, .categorie_competence:hover p {
+    color: #ffffff;
+}
+
+h3 {
+    font-size: 2em;
+    color: #4400ffec;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #2d00a8ec;
+    padding-bottom: 10px;
+}
+
+h4 {
+    font-size: 1.3em;
+    color: #4400ffec;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+h5 {
+    font-size: 1.1em;
+    color: #4400ffec;
+    margin-top: 10px;
+}
+
+p {
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.formation, .experience {
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #005aad13;
+    border-left: 4px solid #0073ffec;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.formation:hover, .experience:hover {
+    background-color: #0073ffec;
+    transform: translateX(10px);
+    box-shadow: 0 5px 15px rgba(0, 115, 255, 0.3);
+    border-left-width: 8px;
+}
+
+.formation:hover h4, .formation:hover p, .formation:hover li, .experience:hover h4, .experience:hover p, .experience:hover li {
+    color: #ffffff;
+}
+
+.details_formation {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+li {
+    margin-bottom: 8px;
+    color: #000000;
+}
+
+#centres_interets ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+#centres_interets li {
+    display: inline-block;
+    background-color: #0073ffec;
+    padding: 10px 20px;
+    margin: 5px;
+    color: #ffffffec;
+}
+
+@media screen and (max-width:768px) {
+    #conteneur {
+        padding: 10px;
+    }
+
+    #en_tete h1 {
+        font-size: 2em;
+    }
+
+    #en_tete h2 {
+        font-size: 1.2em;
+    }
+
+    #contact, #profil, #competences, #formations, #experiences, #centres_interets {
+        padding: 20px;
+    }
+
+    .contact {
+        flex-direction: column;
+    }
+
+    #photo img {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    #en_tete {
+        padding: 30px 10px;
+    }
+
+    #en_tete h1 {
+        font-size: 1.5em;
+    }
+
+    #en_tete h2 {
+        font-size: 1em;
+    }
+
+    #contact, #profil, #competences, #formations, #experiences, #centres_interets {
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    #photo img {
+        width: 120px;
+    }
+}

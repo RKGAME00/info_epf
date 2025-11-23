@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - Céleste KOLOUSSA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container" style="margin-top: 2em;">
+            <div class="nav-logo">
+                <h2>Céleste</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projets.html" class="nav-link active">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="experiences.html" class="nav-link">Expériences</a>
+                </li>
+                <li class="nav-item">
+                    <a href="competences.html" class="nav-link">Compétences</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1>🚀 Mes Projets</h1>
+            <p>Découvrez mes réalisations en robotique, systèmes embarqués et développement logiciel</p>
+        </div>
+    </section>
+
+    <!-- Main Projects Section -->
+    <section class="projects-main">
+        <div class="container">
+            <div class="projects-header">
+                <h2>Portfolio de Projets</h2>
+                <p>Cliquez sur une catégorie pour explorer mes réalisations</p>
+            </div>
+
+            <div class="projects-container">
+                <!-- BUT GEII Category Button -->
+                <button class="project-category but-category" onclick="window.location.href='projets-but.html'">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            🎓
+                        </div>
+                        <h3 class="category-title">Projets BUT GEII</h3>
+                        <p class="category-subtitle">Formation en Génie Électrique et Informatique Industrielle</p>
+                    </div>
+                    <div class="category-content">
+                        <ul class="projects-preview">
+                            <li>🏎️ F1Tenth - Voiture Autonome</li>
+                            <li>⚡ Parallélisation OpenMP</li>
+                            <li>📡 Intégration Lidar ROS</li>
+                            <li>🔧 Systèmes Embarqués RTOS</li>
+                        </ul>
+                        <div class="category-tags">
+                            <span class="tag">SAE</span>
+                            <span class="tag">ESE</span>
+                            <span class="tag">Robotique</span>
+                            <span class="tag">Embarqué</span>
+                        </div>
+                        <div class="explore-hint">
+                            <span>Explorer les projets</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Personal Projects Category Button -->
+                <button class="project-category personal-category" onclick="window.location.href='projets-perso.html'">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            💡
+                        </div>
+                        <h3 class="category-title">Projets Personnels</h3>
+                        <p class="category-subtitle">Réalisations créatives et innovations technologiques</p>
+                    </div>
+                    <div class="category-content">
+                        <ul class="projects-preview">
+                            <li>🏠 Système Domotique IoT</li>
+                            <li>🤖 Robot Autonome Personnel</li>
+                            <li>🔧 Projets de Maintenance</li>
+                            <li>⚙️ Électronique DIY</li>
+                        </ul>
+                        <div class="category-tags">
+                            <span class="tag">Domotique</span>
+                            <span class="tag">IoT</span>
+                            <span class="tag">Innovation</span>
+                            <span class="tag">DIY</span>
+                        </div>
+                        <div class="explore-hint">
+                            <span>Explorer les projets</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Céleste KOLOUSSA. Tous droits réservés.</p>
+            <div class="footer-social">
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

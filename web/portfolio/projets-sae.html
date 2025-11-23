@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets SAE - Céleste KOLOUSSA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Céleste</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projets.html" class="nav-link">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="experiences.html" class="nav-link">Expériences</a>
+                </li>
+                <li class="nav-item">
+                    <a href="competences.html" class="nav-link">Compétences</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a> > <a href="projets.html">Projets</a> > Projets SAE
+            </div>
+            <h1>Projets SAE - Situations d'Apprentissage et d'Évaluation</h1>
+            <p>Découvrez mes projets académiques réalisés dans le cadre du BUT GEII</p>
+        </div>
+    </section>
+
+    <!-- SAE Projects Overview -->
+    <section class="tools-overview">
+        <div class="container">
+            <!-- Introduction -->
+            <div class="tools-intro">
+                <div class="intro-card">
+                    <div class="intro-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Projets SAE - Formation GEII</h3>
+                    <p>Les Situations d'Apprentissage et d'Évaluation (SAE) sont des projets intégrés au programme BUT
+                        GEII
+                        qui permettent de mettre en pratique les compétences techniques dans des contextes réels
+                        d'ingénierie.</p>
+                    <div class="intro-stats">
+                        <div class="stat">
+                            <span class="stat-number">6</span>
+                            <span class="stat-label">SAE Réalisées</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Années de Formation</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Domaines Techniques</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAE Par Année -->
+            <div class="tools-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>SAE 5 & 6 - Projets Intégrateurs (2024-2025)</h2>
+                        <p>Projets majeurs de fin d'études combinant robotique, IA et systèmes embarqués</p>
+                    </div>
+                </div>
+
+                <div class="tools-grid">
+                    <div class="tool-card" onclick="window.location.href='projet-f1tenth.html'">
+                        <div class="tool-card-header">
+                            <div class="tool-icon software">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="tool-badge">SAE5-6</div>
+                        </div>
+                        <div class="tool-content">
+                            <h4>F1Tenth - Voiture Autonome</h4>
+                            <p>Développement complet d'une voiture autonome avec navigation SLAM, perception LIDAR et
+                                algorithmes avancés pour la compétition F1Tenth.</p>
+                            <div class="tool-tags">
+                                <span class="tag">ROS/ROS2</span>
+                                <span class="tag">LIDAR</span>
+                                <span class="tag">Navigation</span>
+                                <span class="tag">SLAM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='sae-temps-reel.html'">
+                        <div class="tool-card-header">
+                            <div class="tool-icon software">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="tool-badge">SAE6</div>
+                        </div>
+                        <div class="tool-content">
+                            <h4>Programmation Temps Réel</h4>
+                            <p>Développement d'applications temps réel avec RTOS Trampoline sur Jetson Nano, gestion de
+                                tâches critiques et optimisation.</p>
+                            <div class="tool-tags">
+                                <span class="tag">RTOS</span>
+                                <span class="tag">Trampoline</span>
+                                <span class="tag">Jetson Nano</span>
+                                <span class="tag">C/C++</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAE Analyse et Performance -->
+            <div class="tools-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>SAE Analyse & Performance (2024)</h2>
+                        <p>Projets d'analyse et d'optimisation de performance système</p>
+                    </div>
+                </div>
+
+                <div class="tools-grid">
+                    <div class="tool-card" onclick="window.location.href='projet-openmp.html'">
+                        <div class="tool-card-header">
+                            <div class="tool-icon software">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="tool-badge">Collaboration</div>
+                        </div>
+                        <div class="tool-content">
+                            <h4>Parallélisation OpenMP</h4>
+                            <p>Étude collaborative d'optimisation de performance par parallélisation d'algorithmes avec
+                                OpenMP sur architectures multi-cœurs.</p>
+                            <div class="tool-tags">
+                                <span class="tag">C/C++</span>
+                                <span class="tag">OpenMP</span>
+                                <span class="tag">Performance</span>
+                                <span class="tag">Multi-threading</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='sae-benchmarking.html'">
+                        <div class="tool-card-header">
+                            <div class="tool-icon software">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <div class="tool-badge">Analyse</div>
+                        </div>
+                        <div class="tool-content">
+                            <h4>Benchmarking Système</h4>
+                            <p>Analyse comparative de performances entre différentes architectures matérielles et
+                                logicielles pour systèmes embarqués.</p>
+                            <div class="tool-tags">
+                                <span class="tag">Benchmarking</span>
+                                <span class="tag">Métriques</span>
+                                <span class="tag">Comparatif</span>
+                                <span class="tag">Optimisation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAE Systèmes & Réseaux -->
+            <div class="tools-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>SAE Systèmes & Réseaux (2023-2024)</h2>
+                        <p>Projets d'intégration système et communication inter-processus</p>
+                    </div>
+                </div>
+
+                <div class="tools-grid">
+                    <div class="tool-card" onclick="window.location.href='projet-lidar-ros.html'">
+                        <div class="tool-card-header">
+                            <div class="tool-icon software">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="tool-badge">Perception</div>
+                        </div>
+                        <div class="tool-content">
+                            <h4>Intégration Lidar ROS</h4>
+                            <p>Développement d'un système de perception robotique avec capteur Lidar, cartographie SLAM
+                                et navigation autonome utilisant ROS.</p>
+                            <div class="tool-tags">
+                                <span class="tag">ROS Melodic</span>
+                                <span class="tag">LIDAR</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">Perception</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='sae-iot-communication.html'">
+                        <div class="tool-card-header">
+                            <div class="tool-icon software">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <div class="tool-badge">IoT</div>
+                        </div>
+                        <div class="tool-content">
+                            <h4>Communication IoT</h4>
+                            <p>Développement de systèmes IoT communicants avec protocoles MQTT, HTTP et interfaces web
+                                pour collecte de données capteurs.</p>
+                            <div class="tool-tags">
+                                <span class="tag">ESP32</span>
+                                <span class="tag">MQTT</span>
+                                <span class="tag">IoT</span>
+                                <span class="tag">Web Interface</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAE Électronique & Hardware -->
+            <div class="tools-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2>SAE Électronique & Conception (2022-2023)</h2>
+                        <p>Projets de conception électronique et programmation FPGA</p>
+                    </div>
+                </div>
+
+                <div class="tools-grid">
+                    <div class="tool-card" onclick="window.location.href='projet-systemes-embarques.html'">
+                        <div class="tool-card-header">
+                            <div class="tool-icon hardware">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="tool-badge">Embarqué</div>
+                        </div>
+                        <div class="tool-content">
+                            <h4>Systèmes Embarqués RTOS</h4>
+                            <p>Collection de projets en systèmes temps réel avec microcontrôleurs, FPGA et RTOS pour
+                                applications IoT et domotique.</p>
+                            <div class="tool-tags">
+                                <span class="tag">RTOS</span>
+                                <span class="tag">STM32</span>
+                                <span class="tag">ESP32</span>
+                                <span class="tag">FPGA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='sae-conception-pcb.html'">
+                        <div class="tool-card-header">
+                            <div class="tool-icon hardware">
+                                <i class="fas fa-memory"></i>
+                            </div>
+                            <div class="tool-badge">Conception</div>
+                        </div>
+                        <div class="tool-content">
+                            <h4>Conception PCB KiCad</h4>
+                            <p>Conception complète de circuits imprimés avec KiCad, de la schématique au routage,
+                                incluant simulation et fabrication.</p>
+                            <div class="tool-tags">
+                                <span class="tag">KiCad</span>
+                                <span class="tag">PCB</span>
+                                <span class="tag">Schématique</span>
+                                <span class="tag">Simulation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tool-card" onclick="window.location.href='sae-fpga-vhdl.html'">
+                        <div class="tool-card-header">
+                            <div class="tool-icon hardware">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="tool-badge">FPGA</div>
+                        </div>
+                        <div class="tool-content">
+                            <h4>Programmation FPGA VHDL</h4>
+                            <p>Développement de systèmes logiques programmables en VHDL sur Zybo Z7, processeurs
+                                soft-core et interfaces haute vitesse.</p>
+                            <div class="tool-tags">
+                                <span class="tag">VHDL</span>
+                                <span class="tag">Zybo Z7</span>
+                                <span class="tag">Vivado</span>
+                                <span class="tag">SoC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences Développées -->
+    <section class="project-detail alternate">
+        <div class="container">
+            <h2>Compétences Développées à travers les SAE</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-robot"></i>
+                    <h4>Robotique & IA</h4>
+                    <p>Navigation autonome, perception par capteurs, algorithmes de planification et ROS</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-microchip"></i>
+                    <h4>Systèmes Embarqués</h4>
+                    <p>RTOS, microcontrôleurs, FPGA, optimisation temps réel et IoT</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Analyse & Performance</h4>
+                    <p>Parallélisation, benchmarking, optimisation code et métriques système</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-network-wired"></i>
+                    <h4>Communication & Intégration</h4>
+                    <p>Protocoles IoT, architectures distribuées, interfaces inter-processus</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-memory"></i>
+                    <h4>Conception Électronique</h4>
+                    <p>PCB, schématiques, simulation circuit, KiCad et fabrication</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <h4>Travail Collaboratif</h4>
+                    <p>Gestion projet, versioning Git, documentation technique et présentation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back Link -->
+    <div class="container">
+        <div class="back-link">
+            <a href="projets.html" class="btn btn-primary">
+                <i class="fas fa-arrow-left"></i> Retour aux projets
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Céleste KOLOUSSA. Tous droits réservés.</p>
+            <div class="footer-social">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/céleste-koloussa-40b543177" class="social-link" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

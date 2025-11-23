@@ -1,0 +1,8 @@
+[2025-06-20 16:43:17] Tentative d'envoi:
+Destinataire: ckoloussa@gmail.com
+Sujet: Portfolio Contact - test
+Expediteur: ckoloussa@gmail.com
+Nom: KOLOUSSA
+Headers: From: KOLOUSSA <ckoloussa@gmail.com> | Reply-To: ckoloussa@gmail.com | Return-Path: ckoloussa@gmail.com | Content-Type: text/plain; charset=UTF-8 | X-Mailer: PHP/8.3.6 | 
+Resultat: SUCCES
+

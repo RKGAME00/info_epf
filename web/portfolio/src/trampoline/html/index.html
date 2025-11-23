@@ -1,0 +1,179 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=9" />
+  <meta name="generator" content="Doxygen 1.9.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TP3 RTOS: Projet : Programmation Temps Réel avec la Jetson Nano</title>
+  <link href="tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="dynsections.js"></script>
+  <link href="search/search.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="search/searchdata.js"></script>
+  <script type="text/javascript" src="search/search.js"></script>
+  <link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+    <div id="titlearea">
+      <table cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr style="height: 56px;">
+            <td id="projectlogo"><img alt="Logo" src="rtos_linux_img.jpg" /></td>
+            <td id="projectalign" style="padding-left: 0.5em;">
+              <div id="projectname">TP3 RTOS
+                &#160;<span id="projectnumber">1.0</span>
+              </div>
+              <div id="projectbrief">Implémentation d&#39;un RTOS sur une jetson nano</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end header part -->
+    <!-- Généré par Doxygen 1.9.1 -->
+    <script type="text/javascript">
+      /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+      var searchBox = new SearchBox("searchBox", "search", false, 'Recherche', '.html');
+      /* @license-end */
+    </script>
+    <script type="text/javascript" src="menudata.js"></script>
+    <script type="text/javascript" src="menu.js"></script>
+    <script type="text/javascript">
+      /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+      $(function () {
+        initMenu('', true, false, 'search.php', 'Recherche');
+        $(document).ready(function () { init_search(); });
+      });
+      /* @license-end */</script>
+    <div id="main-nav"></div>
+  </div><!-- top -->
+  <!-- window showing the filter options -->
+  <div id="MSearchSelectWindow" onmouseover="return searchBox.OnSearchSelectShow()"
+    onmouseout="return searchBox.OnSearchSelectHide()" onkeydown="return searchBox.OnSearchSelectKey(event)">
+  </div>
+
+  <!-- iframe showing the search results (closed by default) -->
+  <div id="MSearchResultsWindow">
+    <iframe src="javascript:void(0)" frameborder="0" name="MSearchResults" id="MSearchResults">
+    </iframe>
+  </div>
+
+  <div class="PageDoc">
+    <div class="header">
+      <div class="headertitle">
+        <div class="title">Projet : Programmation Temps Réel avec la Jetson Nano </div>
+      </div>
+    </div><!--header-->
+    <div class="contents">
+      <div class="textblock">
+        <p><a class="anchor" id="md_Readme"></a> </p>
+        <h1><a class="anchor" id="autotoc_md1"></a>
+          Objectif</h1>
+        <p>L’objectif de ce TP est de nous initier à la programmation de systèmes en temps réel sous Linux, en
+          particulier avec la carte <b>Jetson Nano</b>. Ce travail pratique est conçu pour nous apprendre :</p>
+        <ul>
+          <li>La manipulation du temps en programmation embarquée.</li>
+          <li>La programmation multitâche et parallèle avec les threads POSIX (<code>pthread</code>).</li>
+          <li>Les techniques de synchronisation dans un environnement embarqué.</li>
+        </ul>
+        <h1><a class="anchor" id="autotoc_md2"></a>
+          Ce que l’on apprend</h1>
+        <p>Ce projet nous permet d’acquérir des compétences essentielles en gestion du temps dans les systèmes
+          embarqués, en particulier :</p>
+        <ul>
+          <li>La maîtrise des structures <code>struct timespec</code> pour manipuler le temps avec précision (en
+            microsecondes).</li>
+          <li>L’implémentation d’opérations telles que l’addition et la soustraction de temps.</li>
+          <li>La création et la gestion de threads pour organiser des tâches en parallèle.</li>
+          <li>L’utilisation des mutex pour garantir la synchronisation entre les threads.</li>
+        </ul>
+        <p>Ces compétences sont fondamentales dans des applications critiques, comme la robotique ou l’IoT, où la
+          précision temporelle est primordiale.</p>
+        <h1><a class="anchor" id="autotoc_md3"></a>
+          Ce qu'on doit faire</h1>
+        <h2><a class="anchor" id="autotoc_md4"></a>
+          1. Implémentation des Fonctions Temps</h2>
+        <p>Nous développons une bibliothèque contenant des fonctions pour :</p>
+        <ul>
+          <li><b>Conversion</b> : Convertir une structure <code>timespec</code> en microsecondes
+            (<code>timespec_to_micros</code>).</li>
+          <li><b>Addition</b> : Additionner deux structures <code>timespec</code> (<code>timespec_add</code>).</li>
+          <li><b>Soustraction</b> : Soustraire une structure <code>timespec</code> d’une autre
+            (<code>timespec_sub</code>).</li>
+        </ul>
+        <p>Ces fonctions sont implémentées dans les fichiers suivants :</p>
+        <ul>
+          <li><code>src/utimes.c</code></li>
+          <li><code>include/utimes.h</code></li>
+        </ul>
+        <h2><a class="anchor" id="autotoc_md5"></a>
+          2. Création de Threads</h2>
+        <p>À partir des fonctions développées, nous utilisons les threads pour :</p>
+        <ul>
+          <li>Surveiller en temps réel la distance mesurée par un capteur ultra-son.</li>
+          <li>Déclencher des alertes visuelles via des LED en fonction des distances critiques.</li>
+        </ul>
+        <h2><a class="anchor" id="autotoc_md6"></a>
+          3. Architecture du Système Temps Réel</h2>
+        <p>Nous concevons une architecture fonctionnelle qui :</p>
+        <ul>
+          <li>Décrit les threads nécessaires pour la gestion des capteurs et des LED.</li>
+          <li>Spécifie les communications et interactions entre les threads.</li>
+        </ul>
+        <h2><a class="anchor" id="autotoc_md7"></a>
+          4. Tests et Validation</h2>
+        <h3><a class="anchor" id="autotoc_md8"></a>
+          Tests de la bibliothèque</h3>
+        <p>Les premières vérifications sont effectuées à l’aide de <b>Unity</b>, une bibliothèque de tests unitaires
+          pour le langage C. Ces tests vérifient les fonctions de la bibliothèque <code>utimes</code> :</p>
+        <ul>
+          <li>La conversion d’une structure <code>timespec</code> en microsecondes.</li>
+          <li>L’addition et la soustraction de deux structures <code>timespec</code>.</li>
+        </ul>
+        <h3><a class="anchor" id="autotoc_md9"></a>
+          Tests réalisés pendant la séance de TP</h3>
+        <p>Pendant la séance de TP, nous testons le fonctionnement de la bibliothèque et des threads en conditions
+          réelles. Les tests incluent :</p>
+        <ul>
+          <li><b>Génération d’un signal carré</b> : Vérification que le signal généré correspond bien aux
+            spécifications.</li>
+          <li><b>Synchronisation entre les threads <code>trigger</code> et <code>echo</code></b> : Test des interactions
+            pour garantir une mesure précise de la distance.</li>
+        </ul>
+        <h3><a class="anchor" id="autotoc_md10"></a>
+          Tests sur Raspberry Pi</h3>
+        <p>Enfin, la bibliothèque et le système sont portés sur un <b>Raspberry Pi</b>. Tous les tests réalisés sur la
+          Jetson Nano sont répétés, à une exception près : la bibliothèque utilisée pour gérer les <a class="el"
+            href="structGPIO.html">GPIO</a> est spécifique au Raspberry Pi. En dehors de ce détail, l’ensemble des tests
+          reste identique.</p>
+        <hr />
+        <h1><a class="anchor" id="autotoc_md12"></a>
+          Vidéo Démonstrative</h1>
+        <p>Voici une vidéo illustrant le fonctionnement du projet :</p>
+        <video controls autoplay muted loop width="600">
+          <source src="demo.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas les vidéos HTML5.
+        </video>
+        <hr />
+        <h1><a class="anchor" id="autotoc_md14"></a>
+          Documentation</h1>
+        <p>Pour plus de détails sur l'implémentation et l'utilisation des fonctions et threads, veuillez consulter la <a
+            href="https://trampoline-e227201h-9090d2741921cb93ae4742584cf8ff5658d31b0f518.univ-nantes.io">documentation
+            complète</a>. </p>
+      </div>
+    </div><!-- PageDoc -->
+  </div><!-- contents -->
+  <!-- start footer part -->
+  <hr class="footer" />
+  <address class="footer"><small>
+      Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104"
+          height="31" alt="doxygen" /></a> 1.9.1
+    </small></address>
+</body>
+
+</html>

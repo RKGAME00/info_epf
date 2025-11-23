@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapping ROS & Path Planning A* | Céleste Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Céleste</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projets.html" class="nav-link">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="experiences.html" class="nav-link">Expériences</a>
+                </li>
+                <li class="nav-item">
+                    <a href="competences.html" class="nav-link">Compétences</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="f1tenth-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="breadcrumb-modern">
+                    <a href="projets.html" class="breadcrumb-link">
+                        <i class="fas fa-chevron-left"></i>
+                        <span>Projets</span>
+                    </a>
+                    <div class="breadcrumb-separator">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <span class="breadcrumb-current">Mapping ROS</span>
+                </div>
+
+                <div class="hero-badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Projet Académique</span>
+                </div>
+
+                <h1 class="hero-title-main">Mapping ROS</h1>
+                <h2 class="hero-subtitle-main">Path Planning A*</h2>
+
+                <p class="hero-description-main">
+                    Maîtrise de l'écosystème ROS1 avec développement d'algorithmes de planification de trajectoire A*
+                    et intégration capteur RPLidar pour navigation autonome en environnement Docker.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">A*</div>
+                        <div class="stat-label">Algorithme</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">360°</div>
+                        <div class="stat-label">RPLidar</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">ROS1</div>
+                        <div class="stat-label">Melodic</div>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#overview" class="btn btn-secondary">
+                        <i class="fas fa-eye"></i> Découvrir le projet
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="overview-section" id="overview">
+        <div class="container">
+            <h2 class="section-title">Vision du Projet</h2>
+            <div class="overview-grid">
+                <div class="glass-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Formation ROS & Path Planning</h3>
+                            <p>Maîtrise des concepts robotiques fondamentaux</p>
+                        </div>
+                    </div>
+                    <p>
+                        Ce projet académique (TP ROS semestre 6) m'a permis de maîtriser l'écosystème ROS1
+                        en développant des nœuds personnalisés, en utilisant des packages externes comme RPLidar,
+                        et en implémentant un algorithme A* optimisé pour la planification de trajectoire.
+                    </p>
+                    <div class="highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <div>
+                                <strong>Architecture ROS</strong><br>
+                                <span style="color: #64748b;">Nodes, topics, messages custom et packages</span>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <div>
+                                <strong>Algorithme A*</strong><br>
+                                <span style="color: #64748b;">Implémentation C++ avec optimisations</span>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">
+                                <i class="fas fa-docker"></i>
+                            </div>
+                            <div>
+                                <strong>Environnement Docker</strong><br>
+                                <span style="color: #64748b;">ROS Melodic sur Ubuntu 24.04</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="info-panel">
+                        <h3 style="margin-bottom: 1.5rem; color: #1e293b;">Informations Techniques</h3>
+                        <div class="info-grid">
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Durée</span>
+                                </div>
+                                <div class="info-value">1 semestre</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <i class="fas fa-users"></i>
+                                    <span>Équipe</span>
+                                </div>
+                                <div class="info-value">4 étudiants (2 binômes)</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <i class="fas fa-satellite-dish"></i>
+                                    <span>Capteur</span>
+                                </div>
+                                <div class="info-value">RPLidar</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <i class="fas fa-code"></i>
+                                    <span>Langages</span>
+                                </div>
+                                <div class="info-value">C++</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="badges-collection">
+                        <div class="badge-item sae">TP ROS</div>
+                        <div class="badge-item year">S6 2024</div>
+                        <div class="badge-item tech">Path Planning</div>
+                        <div class="badge-item framework">ROS1</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences Section -->
+    <section class="competences-section">
+        <div class="container">
+            <h2 class="section-title">Compétences Développées</h2>
+            <p
+                style="text-align: center; color: #64748b; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Maîtrise progressive de l'écosystème ROS et des algorithmes de navigation
+            </p>
+
+            <div class="competences-grid">
+                <div class="competence-card concevoir">
+                    <div class="competence-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3>Concevoir</h3>
+                    <p>Architecture système ROS avec nœuds personnalisés et algorithmes de planification A*</p>
+                </div>
+
+                <div class="competence-card verifier">
+                    <div class="competence-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Vérifier</h3>
+                    <p>Tests et validation des algorithmes sur cartes multiples avec optimisations performances</p>
+                </div>
+
+                <div class="competence-card integrer">
+                    <div class="competence-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Intégrer</h3>
+                    <p>Intégration capteur RPLidar et environnement Docker avec ROS Melodic</p>
+                </div>
+
+                <div class="competence-card maintenir">
+                    <div class="competence-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Maintenir</h3>
+                    <p>Documentation technique complète et architecture modulaire évolutive</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="architecture-section">
+        <div class="container">
+            <h2 class="section-title">Architecture ROS</h2>
+            <p
+                style="text-align: center; color: #64748b; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Système modulaire avec trois nœuds ROS principaux
+            </p>
+
+            <div class="flow-grid">
+                <div class="flow-card">
+                    <div class="flow-number">01</div>
+                    <div class="flow-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <h4>Maps Server</h4>
+                    <p>Publication des données de carte</p>
+                    <div class="flow-metrics">
+                        <span class="metric">YAML Config</span>
+                        <span class="metric">PNG Maps</span>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-number">02</div>
+                    <div class="flow-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4>Marker Node</h4>
+                    <p>Création marqueurs RViz départ/arrivée</p>
+                    <div class="flow-metrics">
+                        <span class="metric">RViz Markers</span>
+                        <span class="metric">Interactive</span>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-number">03</div>
+                    <div class="flow-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h4>A* Node</h4>
+                    <p>Calcul trajectoire optimale</p>
+                    <div class="flow-metrics">
+                        <span class="metric">f(n) = g(n) + h(n)</span>
+                        <span class="metric">8-directions</span>
+                    </div>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-number">04</div>
+                    <div class="flow-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h4>Visualisation</h4>
+                    <p>Affichage RViz temps réel</p>
+                    <div class="flow-metrics">
+                        <span class="metric">3D Viz</span>
+                        <span class="metric">Debug</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="tech-section">
+        <div class="container">
+            <h2 class="section-title">Stack Technique</h2>
+            <p
+                style="text-align: center; color: #64748b; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Environnement de développement containerisé et outils robotiques
+            </p>
+
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <div class="tech-header">
+                        <div class="tech-header-content">
+                            <div class="tech-category-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3>Infrastructure</h3>
+                        </div>
+                    </div>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <div class="tech-item-icon">
+                                <i class="fab fa-ubuntu"></i>
+                            </div>
+                            <div>
+                                <h4>Ubuntu 24.04</h4>
+                                <p style="color: #64748b; margin: 0;">Système hôte de développement</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">
+                                <i class="fab fa-docker"></i>
+                            </div>
+                            <div>
+                                <h4>Docker ROS Melodic</h4>
+                                <p style="color: #64748b; margin: 0;">Conteneur Ubuntu 18.04 avec ROS1</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">
+                                <i class="fas fa-satellite-dish"></i>
+                            </div>
+                            <div>
+                                <h4>RPLidar Package</h4>
+                                <p style="color: #64748b; margin: 0;">Interface capteur Lidar 360°</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tech-category">
+                    <div class="tech-header software">
+                        <div class="tech-header-content">
+                            <div class="tech-category-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3>ROS & Algorithmes</h3>
+                        </div>
+                    </div>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <div class="tech-item-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div>
+                                <h4>ROS Melodic</h4>
+                                <p style="color: #64748b; margin: 0;">Framework robotique et communication</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div>
+                                <h4>C++</h4>
+                                <p style="color: #64748b; margin: 0;">Nœuds ROS et algorithme A*</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-item-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <div>
+                                <h4>RViz</h4>
+                                <p style="color: #64748b; margin: 0;">Visualisation 3D et debug</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <h2 class="section-title">Résultats & Optimisations</h2>
+            <p
+                style="text-align: center; color: #64748b; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Performances obtenues et défis techniques relevés
+            </p>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-compress-arrows-alt"></i>
+                    </div>
+                    <div class="result-value">Facteur 4</div>
+                    <div class="result-label">Compression Carte</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="result-value">2000²</div>
+                    <div class="result-label">Pixels Carte Max</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-docker"></i>
+                    </div>
+                    <div class="result-value">100%</div>
+                    <div class="result-label">Compatibilité Docker</div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="result-value">Real-time</div>
+                    <div class="result-label">Visualisation RViz</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 style="margin-bottom: 1rem;">Découvrir ce projet technique ?</h2>
+                <p style="color: #64748b; margin-bottom: 2rem;">
+                    Explorez mes autres réalisations robotiques ou échangeons sur les algorithmes A*
+                </p>
+                <div class="cta-buttons">
+                    <a href="projets.html" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> Tous les projets
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-comments"></i> Me contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Céleste KOLOUSSA. Tous droits réservés.</p>
+            <div class="footer-social">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/céleste-koloussa-40b543177" class="social-link" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 25px;
+    line-height: 1.8;
+}
+
+#container {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    line-height: 1.4;
+}
+
+.porte-bloc {
+    background-color: #ffffff;
+    padding: 40px;
+    margin-bottom: 50px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.img-top {
+    display: block;
+    max-width: 240px;
+    max-height: 200px;
+    margin: 0 auto 30px auto;
+    object-fit: contain;
+}
+
+.porte-bloc h2 {
+    color: #34495e;
+    margin-bottom: 25px;
+    font-size: 2em;
+    line-height: 1.5;
+}
+
+.inputs {
+    margin-bottom: 30px;
+    line-height: 2.5;
+}
+
+.inputs div {
+    margin-bottom: 12px;
+}
+
+label {
+    display: inline-block;
+    min-width: 100px;
+    color: #555;
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #ffffff;
+    color: #333;
+    border: 2px solid #3498db;
+    padding: 12px 24px;
+    font-size: 1.15em;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #3498db;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+button.actif {
+    background-color: #2ecc71;
+    color: #ffffff;
+    border-color: #2ecc71;
+}
+
+.sortie {
+    margin-top: 30px;
+    margin-bottom: 25px;
+    padding: 20px 28px;
+    background-color: #ecf0f1;
+    border-left: 6px solid #3498db;
+    font-size: 1.4em;
+    color: #2c3e50;
+    line-height: 1.8;
+}
+
+.sortie span {
+    font-weight: bold;
+    color: #e74c3c;
+    font-size: 1.1em;
+}
+
+.expl {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #666;
+    font-size: 1.1em;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    line-height: 1.9;
+}
+
+.tv {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+.tv th,
+.tv td {
+    border: 1px solid #ddd;
+    padding: 14px;
+    text-align: center;
+}
+
+.tv th {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.tv td {
+    background-color: #ffffff;
+    font-size: 1.05em;
+}
+
+.tv-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+    line-height: 2.5;
+}
+
+.tv-list li {
+    padding: 10px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 1.15em;
+    color: #555;
+    border-bottom: 1px dotted #ddd;
+}
+
+.tv-list li:last-child {
+    border-bottom: none;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    .porte-bloc {
+        padding: 30px;
+        margin-bottom: 40px;
+    }
+
+    .img-top {
+        max-width: 200px;
+        max-height: 160px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+
+    .porte-bloc h2 {
+        font-size: 1.7em;
+    }
+
+    button {
+        padding: 10px 18px;
+        font-size: 1.05em;
+    }
+
+    .inputs {
+        line-height: 2.2;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    .porte-bloc {
+        padding: 25px;
+        margin-bottom: 35px;
+    }
+
+    .porte-bloc h2 {
+        font-size: 1.5em;
+    }
+
+    .img-top {
+        max-width: 160px;
+        max-height: 140px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        min-width: auto;
+    }
+
+    button {
+        margin-top: 8px;
+        padding: 10px 20px;
+    }
+
+    .inputs {
+        line-height: 2;
+    }
+
+    .sortie {
+        font-size: 1.25em;
+        padding: 18px 20px;
+    }
+
+    .expl {
+        font-size: 1.05em;
+    }
+
+    .tv-list li {
+        font-size: 1.05em;
+    }
+}

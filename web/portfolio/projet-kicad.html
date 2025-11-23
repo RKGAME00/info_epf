@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets KiCad - Céleste KOLOUSSA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Céleste</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projets.html" class="nav-link">Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a href="experiences.html" class="nav-link">Expériences</a>
+                </li>
+                <li class="nav-item">
+                    <a href="competences.html" class="nav-link">Compétences</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-microchip" style="color:#27ae60"></i> Projets de Conception Électronique avec KiCad
+            </h1>
+            <p>Présentation de mes réalisations en conception de circuits imprimés et schémas électroniques avec KiCad.
+            </p>
+            <a href="projets.html" class="btn btn-secondary">← Retour aux projets</a>
+        </div>
+    </section>
+
+    <!-- Section Présentation KiCad -->
+    <section class="about-kicad">
+        <div class="container">
+            <h2>Pourquoi KiCad&nbsp;?</h2>
+            <p>
+                KiCad est un logiciel libre et open-source de conception de schémas électroniques et de circuits
+                imprimés (PCB).
+                Je l'utilise pour tous mes projets nécessitant la création de cartes électroniques, du prototypage à la
+                réalisation finale.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section Projets réalisés avec KiCad -->
+    <section class="projects-kicad-list">
+        <div class="container">
+            <h2><i class="fas fa-project-diagram" style="color:#4CAF50"></i> Mes projets réalisés avec KiCad</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-robot" style="color:#3498db"></i>
+                    </div>
+                    <h3>PCB Robot suiveur de ligne</h3>
+                    <p>
+                        Conception d'un PCB complet pour un robot suiveur de ligne : intégration du driver moteur,
+                        alimentation régulée, connectique capteurs, et affichage de debug (afficheur 7 segments). Ce
+                        projet met en œuvre l'ensemble du processus de conception, du schéma à la fabrication.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">KiCad</span>
+                        <span class="tech-tag">PCB</span>
+                        <span class="tech-tag">Robotique</span>
+                        <span class="tech-tag">Affichage</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-wave-square" style="color:#f39c12"></i>
+                    </div>
+                    <h3>PCB Interface capteur ultrason</h3>
+                    <p>
+                        Réalisation d'une carte interface pour capteur ultrason : adaptation de niveau, filtrage,
+                        connectique robuste et intégration facile sur breadboard ou PCB principal. Permet la détection
+                        de distance fiable pour des applications embarquées.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">KiCad</span>
+                        <span class="tech-tag">Capteurs</span>
+                        <span class="tech-tag">Interface</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-solar-panel" style="color:#27ae60"></i>
+                    </div>
+                    <h3>Module de charge solaire supercondensateur</h3>
+                    <p>
+                        Conception d'un module de charge solaire pour supercondensateur, destiné à l'alimentation
+                        autonome d'un module capteur domotique LoRa. Gestion de la protection, du contrôle de charge et
+                        de la connexion au module radio.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">KiCad</span>
+                        <span class="tech-tag">Énergie</span>
+                        <span class="tech-tag">Domotique</span>
+                        <span class="tech-tag">LoRa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Explications -->
+    <section class="kicad-explanation">
+        <div class="container">
+            <h2><i class="fas fa-tools" style="color:#e67e22"></i> Mon processus de conception</h2>
+            <ul>
+                <li><strong>Schématique :</strong> Création du schéma électronique avec symboles personnalisés si
+                    besoin.</li>
+                <li><strong>Placement & Routage :</strong> Placement des composants et routage manuel pour optimiser la
+                    compacité et la fiabilité.</li>
+                <li><strong>Vérification :</strong> Contrôle des règles électriques (ERC) et design (DRC) avant
+                    fabrication.</li>
+                <li><strong>Fabrication :</strong> Génération des fichiers Gerber pour la fabrication des PCB.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="cta-kicad">
+        <div class="container" style="text-align:center; margin-top:2em;">
+            <a href="contact.html" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Me contacter
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Céleste KOLOUSSA. Tous droits réservés.</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/céleste-koloussa-40b543177" class="social-link" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

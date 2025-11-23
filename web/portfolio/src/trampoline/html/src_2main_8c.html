@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP3 RTOS: Référence du fichier src/main.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="rtos_linux_img.jpg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">TP3 RTOS
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Implémentation d&#39;un RTOS sur une jetson nano</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier main.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Système radar utilisant un capteur ultrasonique et des LEDs avec Jetson Nano.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;pthread.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="include_2utimes_8h_source.html">../include/utimes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utils_8h_source.html">../include/utils.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de main.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="src_2main_8c__incl.png" border="0" usemap="#asrc_2main_8c" alt=""/></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDATA.html">DATA</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8aa85ae9867fabf70ec72cd3bf6fb6b9"><td class="memItemLeft" align="right" valign="top"><a id="a8aa85ae9867fabf70ec72cd3bf6fb6b9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LED1</b>&#160;&#160;&#160;26</td></tr>
+<tr class="separator:a8aa85ae9867fabf70ec72cd3bf6fb6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09fe5bf321b9a2de26bd5e5b9af6424"><td class="memItemLeft" align="right" valign="top"><a id="ad09fe5bf321b9a2de26bd5e5b9af6424"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LED2</b>&#160;&#160;&#160;27</td></tr>
+<tr class="separator:ad09fe5bf321b9a2de26bd5e5b9af6424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7ff8e253a7412f83deba3a447028a8"><td class="memItemLeft" align="right" valign="top"><a id="a4b7ff8e253a7412f83deba3a447028a8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LED3</b>&#160;&#160;&#160;28</td></tr>
+<tr class="separator:a4b7ff8e253a7412f83deba3a447028a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae048837f20072bed467332b1bd1da9fa"><td class="memItemLeft" align="right" valign="top"><a id="ae048837f20072bed467332b1bd1da9fa"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LED4</b>&#160;&#160;&#160;29</td></tr>
+<tr class="separator:ae048837f20072bed467332b1bd1da9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84de9f6984c497dba22f318773f00f50"><td class="memItemLeft" align="right" valign="top"><a id="a84de9f6984c497dba22f318773f00f50"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TRIG</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a84de9f6984c497dba22f318773f00f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad1dc60a04a1d8cfc8b3ded13601e361"><td class="memItemLeft" align="right" valign="top"><a id="aad1dc60a04a1d8cfc8b3ded13601e361"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ECHO</b>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:aad1dc60a04a1d8cfc8b3ded13601e361"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a314952cf26169af08bdb3dfed70b6291"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="src_2main_8c.html#a314952cf26169af08bdb3dfed70b6291">radar</a> (void *arg)</td></tr>
+<tr class="memdesc:a314952cf26169af08bdb3dfed70b6291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de contrôle des LEDs en fonction de la distance mesurée.  <a href="src_2main_8c.html#a314952cf26169af08bdb3dfed70b6291">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a314952cf26169af08bdb3dfed70b6291"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30602bce522f0bfe7bc2f0957c5aaeaa"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="src_2main_8c.html#a30602bce522f0bfe7bc2f0957c5aaeaa">trigger</a> (void *arg)</td></tr>
+<tr class="memdesc:a30602bce522f0bfe7bc2f0957c5aaeaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction pour envoyer un signal de déclenchement au capteur ultrasonique.  <a href="src_2main_8c.html#a30602bce522f0bfe7bc2f0957c5aaeaa">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a30602bce522f0bfe7bc2f0957c5aaeaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff4e4820e86f7fbe160d9590643d677a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="src_2main_8c.html#aff4e4820e86f7fbe160d9590643d677a">echo</a> (void *arg)</td></tr>
+<tr class="memdesc:aff4e4820e86f7fbe160d9590643d677a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction pour mesurer le temps de retour de l'écho du signal ultrasonique.  <a href="src_2main_8c.html#aff4e4820e86f7fbe160d9590643d677a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aff4e4820e86f7fbe160d9590643d677a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="src_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale du programme.  <a href="src_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Système radar utilisant un capteur ultrasonique et des LEDs avec Jetson Nano. </p>
+<p>Ce programme utilise la bibliothèque <a class="el" href="utils_8h.html" title="Déclarations des fonctions utilitaires pour la gestion des GPIO sur Raspberry Pi.">utils.h</a> pour interfacer avec un capteur ultrasonique et contrôler les LEDs en fonction de la distance mesurée. Le programme crée trois threads pour gérer le déclenchement du capteur, la lecture de l'écho et le contrôle des LEDs.</p>
+<p>Le programme initialise la bibliothèque <a class="el" href="utils_8h.html" title="Déclarations des fonctions utilitaires pour la gestion des GPIO sur Raspberry Pi.">utils.h</a> et configure les broches <a class="el" href="structGPIO.html">GPIO</a> pour les LEDs et le capteur ultrasonique. Il crée ensuite trois threads :</p><ul>
+<li><code>trigger</code> : Envoie une impulsion de déclenchement au capteur ultrasonique.</li>
+<li><code>echo</code> : Mesure le temps de retour de l'écho et calcule la distance.</li>
+<li><code>radar</code> : Contrôle les LEDs en fonction de la distance mesurée.</li>
+</ul>
+<p>Les LEDs s'allument selon différents motifs en fonction de la distance mesurée par le capteur ultrasonique.</p>
+<dl class="section note"><dt>Note</dt><dd>Le programme utilise des mutex pour synchroniser les threads et assurer le bon timing des lectures du capteur et du contrôle des LEDs.</dd></dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Assurez-vous que le fichier <a class="el" href="utils_8h.html" title="Déclarations des fonctions utilitaires pour la gestion des GPIO sur Raspberry Pi.">utils.h</a> est présent dans le dossier include et correctement configuré avant d'exécuter ce programme.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>Céleste KOLOUSSA et Marin WIMILLE</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2024 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aff4e4820e86f7fbe160d9590643d677a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff4e4820e86f7fbe160d9590643d677a">&#9670;&nbsp;</a></span>echo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* echo </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction pour mesurer le temps de retour de l'écho du signal ultrasonique. </p>
+<p>Cette fonction est exécutée dans un thread séparé. Elle mesure le temps de retour de l'écho du signal ultrasonique et calcule la distance en fonction de ce temps.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>Pointeur vers une structure <a class="el" href="structDATA.html">DATA</a> contenant les informations partagées entre les threads. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>NULL </dd></dl>
+
+</div>
+</div>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction principale du programme. </p>
+<p>Cette fonction initialise les GPIOs, crée les threads pour le déclenchement, la mesure de l'écho et le contrôle des LEDs, et lance une boucle infinie.</p>
+<dl class="section return"><dt>Renvoie</dt><dd>int Code de retour du programme. </dd></dl>
+
+</div>
+</div>
+<a id="a314952cf26169af08bdb3dfed70b6291"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a314952cf26169af08bdb3dfed70b6291">&#9670;&nbsp;</a></span>radar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* radar </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de contrôle des LEDs en fonction de la distance mesurée. </p>
+<p>Cette fonction est exécutée dans un thread séparé. Elle contrôle l'état des LEDs en fonction de la distance mesurée par le capteur ultrasonique. Les LEDs s'allument selon différents motifs en fonction de la distance.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>Pointeur vers une structure <a class="el" href="structDATA.html">DATA</a> contenant les informations partagées entre les threads. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>NULL </dd></dl>
+
+</div>
+</div>
+<a id="a30602bce522f0bfe7bc2f0957c5aaeaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30602bce522f0bfe7bc2f0957c5aaeaa">&#9670;&nbsp;</a></span>trigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* trigger </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction pour envoyer un signal de déclenchement au capteur ultrasonique. </p>
+<p>Cette fonction est exécutée dans un thread séparé. Elle envoie périodiquement un signal de déclenchement au capteur ultrasonique pour mesurer la distance.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>Pointeur vers une structure <a class="el" href="structDATA.html">DATA</a> contenant les informations partagées entre les threads. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>NULL </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

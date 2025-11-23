@@ -1,0 +1,6 @@
+[submodule "web/web/portfolio"]
+	path = web/web/portfolio
+	url = git@github.com:RKGAME00/portfolio.git
+[submodule "web/portfolio"]
+	path = web/portfolio
+	url = git@github.com:RKGAME00/portfolio.git

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TP3 RTOS: Référence du fichier src/utils.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="rtos_linux_img.jpg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">TP3 RTOS
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Implémentation d&#39;un RTOS sur une jetson nano</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier utils.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Utilitaires pour la gestion des <a class="el" href="structGPIO.html">GPIO</a> sur une plateforme Raspberry Pi.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="utils_8h_source.html">../include/utils.h</a>&quot;</code><br />
+<code>#include &lt;errno.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de utils.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8c__incl.png" border="0" usemap="#asrc_2utils_8c" alt=""/></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a7e9c485cf4fefacb574e7438bdf7c956"><td class="memItemLeft" align="right" valign="top"><a id="a7e9c485cf4fefacb574e7438bdf7c956"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>GPIOCOUNT</b>&#160;&#160;&#160;20</td></tr>
+<tr class="separator:a7e9c485cf4fefacb574e7438bdf7c956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d69a198a5d63857fc962070a84d5d00"><td class="memItemLeft" align="right" valign="top"><a id="a2d69a198a5d63857fc962070a84d5d00"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PINCOUNT</b>&#160;&#160;&#160;40</td></tr>
+<tr class="separator:a2d69a198a5d63857fc962070a84d5d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a627f4c6e2b3a40a122f4303affea486b"><td class="memItemLeft" align="right" valign="top"><a id="a627f4c6e2b3a40a122f4303affea486b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>EXPORT_PATH</b>&#160;&#160;&#160;&quot;/sys/class/gpio/export&quot;</td></tr>
+<tr class="separator:a627f4c6e2b3a40a122f4303affea486b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae102a01cf04ece9585ffa7ba755aee3f"><td class="memItemLeft" align="right" valign="top"><a id="ae102a01cf04ece9585ffa7ba755aee3f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UNEXPORT_PATH</b>&#160;&#160;&#160;&quot;/sys/class/gpio/unexport&quot;</td></tr>
+<tr class="separator:ae102a01cf04ece9585ffa7ba755aee3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cc056cb1e6997e15e55ab97f3fcc8db"><td class="memItemLeft" align="right" valign="top"><a id="a9cc056cb1e6997e15e55ab97f3fcc8db"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>PINS</b>&#160;&#160;&#160;-1, -1, -1, -1, -1, -1, 216, -1, -1, -1, 50, 79, 14, -1, 194, 232, -1, 15, 16, -1, 17, 13, 18, 19, -1, 20, -1, -1, 149, -1, 200, 168, 38, -1, 76, 51, 12, 77, -1, 78</td></tr>
+<tr class="separator:a9cc056cb1e6997e15e55ab97f3fcc8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a401bd015d69aae4f8f49c7de192851"><td class="memItemLeft" align="right" valign="top"><a id="a0a401bd015d69aae4f8f49c7de192851"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>POLL_GPIO</b>&#160;&#160;&#160;POLLPRI | POLLERR</td></tr>
+<tr class="separator:a0a401bd015d69aae4f8f49c7de192851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:af32634b7b3df19ac966906dc4b2bbf7b"><td class="memItemLeft" align="right" valign="top"><a id="af32634b7b3df19ac966906dc4b2bbf7b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>fatal_error</b> (int error_code, char *msg)</td></tr>
+<tr class="separator:af32634b7b3df19ac966906dc4b2bbf7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1bceb9858d4c746bc6e752043b62a91"><td class="memItemLeft" align="right" valign="top"><a id="af1bceb9858d4c746bc6e752043b62a91"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>check_pin</b> (int pin)</td></tr>
+<tr class="separator:af1bceb9858d4c746bc6e752043b62a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c73e9d24700b3157950c790e1cd6ab0"><td class="memItemLeft" align="right" valign="top"><a id="a9c73e9d24700b3157950c790e1cd6ab0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>is_gpio</b> (int pin)</td></tr>
+<tr class="separator:a9c73e9d24700b3157950c790e1cd6ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd2116e729fbdbacf43192058dc515f0"><td class="memItemLeft" align="right" valign="top"><a id="abd2116e729fbdbacf43192058dc515f0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy_gpios</b> ()</td></tr>
+<tr class="separator:abd2116e729fbdbacf43192058dc515f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad4583cacf7c7aeb014b7e707835ef98"><td class="memItemLeft" align="right" valign="top"><a id="aad4583cacf7c7aeb014b7e707835ef98"></a>
+struct <a class="el" href="structGPIO.html">GPIO</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>load_pin</b> (int pin)</td></tr>
+<tr class="separator:aad4583cacf7c7aeb014b7e707835ef98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ef5278ce70848351cacf4edc5f6b7b5"><td class="memItemLeft" align="right" valign="top"><a id="a1ef5278ce70848351cacf4edc5f6b7b5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>init_GPIOs</b> ()</td></tr>
+<tr class="separator:a1ef5278ce70848351cacf4edc5f6b7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34b0fca6c88a727d7e7bc136167cec50"><td class="memItemLeft" align="right" valign="top"><a id="a34b0fca6c88a727d7e7bc136167cec50"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>digital_write</b> (int pin, char l)</td></tr>
+<tr class="separator:a34b0fca6c88a727d7e7bc136167cec50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc6a4f9c9d0152392d5adec6c9ba02e5"><td class="memItemLeft" align="right" valign="top"><a id="afc6a4f9c9d0152392d5adec6c9ba02e5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>digital_read</b> (int pin)</td></tr>
+<tr class="separator:afc6a4f9c9d0152392d5adec6c9ba02e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a971c021333982bb96c29394cb2670049"><td class="memItemLeft" align="right" valign="top"><a id="a971c021333982bb96c29394cb2670049"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>pin_mode</b> (int pin, int direction)</td></tr>
+<tr class="separator:a971c021333982bb96c29394cb2670049"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6f244120cfd49a43ba53da2878742cc"><td class="memItemLeft" align="right" valign="top"><a id="ab6f244120cfd49a43ba53da2878742cc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>export_pin</b> (struct <a class="el" href="structGPIO.html">GPIO</a> *pin)</td></tr>
+<tr class="separator:ab6f244120cfd49a43ba53da2878742cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63f3a6d9f3bd09b1998906d95c9cf818"><td class="memItemLeft" align="right" valign="top"><a id="a63f3a6d9f3bd09b1998906d95c9cf818"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>unpin_mode</b> (int pin)</td></tr>
+<tr class="separator:a63f3a6d9f3bd09b1998906d95c9cf818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a1f645337f825fd30acef21e4fccaef"><td class="memItemLeft" align="right" valign="top"><a id="a7a1f645337f825fd30acef21e4fccaef"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>set_direction</b> (struct <a class="el" href="structGPIO.html">GPIO</a> *pin, int direction)</td></tr>
+<tr class="separator:a7a1f645337f825fd30acef21e4fccaef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2066fc2dec60193f5a48d9eef37c1cdd"><td class="memItemLeft" align="right" valign="top"><a id="a2066fc2dec60193f5a48d9eef37c1cdd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>open_value</b> (struct <a class="el" href="structGPIO.html">GPIO</a> *pin)</td></tr>
+<tr class="separator:a2066fc2dec60193f5a48d9eef37c1cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10419d2a303a48a801aea3bbcf370a95"><td class="memItemLeft" align="right" valign="top"><a id="a10419d2a303a48a801aea3bbcf370a95"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>display</b> (const struct <a class="el" href="structGPIO.html">GPIO</a> *gp)</td></tr>
+<tr class="separator:a10419d2a303a48a801aea3bbcf370a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a957004db3f02d09c9bfe3a160a80d057"><td class="memItemLeft" align="right" valign="top"><a id="a957004db3f02d09c9bfe3a160a80d057"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>wait_for_toggle</b> (int pin, int timeout, void *(func)(void *), void *args)</td></tr>
+<tr class="separator:a957004db3f02d09c9bfe3a160a80d057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a3994fe71d31cc7b5e4debb86c8bc6822"><td class="memItemLeft" align="right" valign="top"><a id="a3994fe71d31cc7b5e4debb86c8bc6822"></a>
+struct <a class="el" href="structGPIO.html">GPIO</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>gpio_pins</b> [40]</td></tr>
+<tr class="separator:a3994fe71d31cc7b5e4debb86c8bc6822"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa235a3094d5b4843b2337147eff7424"><td class="memItemLeft" align="right" valign="top"><a id="aaa235a3094d5b4843b2337147eff7424"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>gpios_list</b> [40] = {PINS}</td></tr>
+<tr class="separator:aaa235a3094d5b4843b2337147eff7424"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Utilitaires pour la gestion des <a class="el" href="structGPIO.html">GPIO</a> sur une plateforme Raspberry Pi. </p>
+<p>Ce fichier contient des fonctions pour initialiser, configurer et manipuler les GPIOs.</p>
+<dl class="section author"><dt>Auteur</dt><dd>M ZAHAF Houssam Eddine </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>
